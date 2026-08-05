@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" width="560" height="160" style="background: none transparent;">
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0,0 L 10,5 L 0,10 z" fill="black"/>
+        </marker>
+    </defs>
+
+    <g id="graph1">
+        <line x1="80" y1="120" x2="80" y2="45" stroke="black" stroke-width="2"/>
+        <line x1="80" y1="120" x2="460" y2="120" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+        
+        <line x1="160" y1="60" x2="160" y2="120" stroke="black" stroke-width="2.5" stroke-dasharray="6, 6"/>
+        <line x1="320" y1="60" x2="320" y2="120" stroke="black" stroke-width="2.5" stroke-dasharray="6, 6"/>
+        
+        <path d="M 80,120 C 147.8,40 172.2,40 240,120 C 307.8,40 332.2,40 400,120" stroke="black" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <text x="72" y="60" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="end" dominant-baseline="middle">0·3</text>
+        <text x="240" y="145" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·2</text>
+        <text x="400" y="145" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·4</text>
+        <text x="470" y="120" font-family="sans-serif" font-size="20" font-weight="bold" dominant-baseline="middle"><tspan font-style="italic">t</tspan> (s)</text>
+    </g>
+
+    <g id="graph2">
+        <line x1="80" y1="270" x2="80" y2="195" stroke="black" stroke-width="2"/>
+        <line x1="80" y1="270" x2="460" y2="270" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+        
+        <line x1="240" y1="210" x2="240" y2="270" stroke="black" stroke-width="2.5" stroke-dasharray="6, 6"/>
+        <line x1="400" y1="210" x2="400" y2="270" stroke="black" stroke-width="2.5" stroke-dasharray="6, 6"/>
+        
+        <path d="M 80,210 C 109,210 131,270 160,270 C 189,270 211,210 240,210 C 269,210 291,270 320,270 C 349,270 371,210 400,210" stroke="black" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <text x="72" y="210" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="end" dominant-baseline="middle">0·3</text>
+        <text x="240" y="295" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·2</text>
+        <text x="400" y="295" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·4</text>
+        <text x="470" y="270" font-family="sans-serif" font-size="20" font-weight="bold" dominant-baseline="middle"><tspan font-style="italic">t</tspan> (s)</text>
+    </g>
+
+    <g id="graph3">
+        <line x1="80" y1="420" x2="80" y2="345" stroke="black" stroke-width="2"/>
+        <line x1="80" y1="420" x2="460" y2="420" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+        
+        <line x1="160" y1="360" x2="160" y2="420" stroke="black" stroke-width="2.5" stroke-dasharray="6, 6"/>
+        
+        <path d="M 80,420 C 147.8,340 172.2,340 240,420 C 307.8,340 332.2,340 400,420" stroke="black" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <text x="72" y="360" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="end" dominant-baseline="middle">0·3</text>
+        <text x="80" y="445" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0</text>
+        <text x="240" y="445" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·2</text>
+        <text x="400" y="445" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·4</text>
+        <text x="470" y="420" font-family="sans-serif" font-size="20" font-weight="bold" dominant-baseline="middle"><tspan font-style="italic">t</tspan> (s)</text>
+    </g>
+
+    <g id="graph4">
+        <line x1="80" y1="570" x2="80" y2="495" stroke="black" stroke-width="2"/>
+        <line x1="80" y1="570" x2="460" y2="570" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+        
+        <line x1="240" y1="510" x2="240" y2="570" stroke="black" stroke-width="2.5" stroke-dasharray="6, 6"/>
+        <line x1="400" y1="510" x2="400" y2="570" stroke="black" stroke-width="2.5" stroke-dasharray="6, 6"/>
+        
+        <path d="M 80,510 C 109,510 131,570 160,570 C 189,570 211,510 240,510 C 269,510 291,570 320,570 C 349,570 371,510 400,510" stroke="black" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <text x="72" y="510" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="end" dominant-baseline="middle">0·3</text>
+        <text x="240" y="595" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·2</text>
+        <text x="400" y="595" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">0·4</text>
+        <text x="470" y="570" font-family="sans-serif" font-size="20" font-weight="bold" dominant-baseline="middle"><tspan font-style="italic">t</tspan> (s)</text>
+    </g>
+</svg>

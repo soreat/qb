@@ -1,0 +1,44 @@
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 500 316.6666666666667" width="500" height="316.6666666666667" version="1.1" id="svg10" sodipodi:docname="gemini-svg (2).svg" inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)">
+  <sodipodi:namedview id="namedview10" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" inkscape:zoom="0.84842105" inkscape:cx="291.12903" inkscape:cy="680.08685" inkscape:window-width="1920" inkscape:window-height="1009" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg10"/>
+  <defs id="defs2">
+    <marker style="overflow:visible" id="marker13" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="1" markerHeight="1" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path13"/>
+    </marker>
+    <marker style="overflow:visible" id="marker12" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="1" markerHeight="1" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path12"/>
+    </marker>
+    <marker style="overflow:visible" id="Triangle" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="1" markerHeight="1" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path135"/>
+    </marker>
+    <marker id="arrowUp" viewBox="0 0 10 10" refX="5" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0,10 L 5,0 L 10,10" fill="black" id="path1"/>
+    </marker>
+    <marker id="arrowRight" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0,0 L 10,5 L 0,10" fill="black" id="path2"/>
+    </marker>
+  </defs>
+  <g transform="translate(50, 50)" id="g4">
+    <text x="-30" y="30" font-family="sans-serif" font-size="20" font-weight="bold" id="text2">i.</text>
+    <line x1="50" y1="250" x2="50" y2="30" stroke="black" stroke-width="2" marker-end="url(#arrowUp)" id="line2" style="marker-end:url(#Triangle)"/>
+    <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2" marker-end="url(#arrowRight)" id="line3"/>
+    <text x="30" y="20" font-family="serif" font-size="24" font-weight="bold" id="text3">T²</text>
+    <text x="340" y="280" font-family="serif" font-size="24" font-weight="bold" id="text4">1/g</text>
+    <path d="M 50,250 C 150,250 200,240 320,50" fill="none" stroke="black" stroke-width="3" id="path4"/>
+  </g>
+  <g transform="translate(50, 350)" id="g7">
+    <text x="-30" y="30" font-family="sans-serif" font-size="20" font-weight="bold" id="text5">ii.</text>
+    <line x1="50" y1="250" x2="50" y2="30" stroke="black" stroke-width="2" marker-end="url(#arrowUp)" id="line5" style="marker-end:url(#marker12)"/>
+    <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2" marker-end="url(#arrowRight)" id="line6"/>
+    <text x="30" y="20" font-family="serif" font-size="24" font-weight="bold" id="text6">T²</text>
+    <text x="340" y="280" font-family="serif" font-size="24" font-weight="bold" id="text7">g</text>
+    <line x1="50" y1="250" x2="300" y2="50" stroke="black" stroke-width="3" id="line7"/>
+  </g>
+  <g transform="translate(50, 650)" id="g10">
+    <text x="-30" y="30" font-family="sans-serif" font-size="20" font-weight="bold" id="text8">iii.</text>
+    <line x1="50" y1="250" x2="50" y2="30" stroke="black" stroke-width="2" marker-end="url(#arrowUp)" id="line8" style="marker-end:url(#marker13)"/>
+    <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2" marker-end="url(#arrowRight)" id="line9"/>
+    <text x="30" y="20" font-family="serif" font-size="24" font-weight="bold" id="text9">T²</text>
+    <text x="340" y="280" font-family="serif" font-size="24" font-weight="bold" id="text10">g</text>
+    <path d="M 50,60 C 60,240 180,250 320,250" fill="none" stroke="black" stroke-width="3" id="path10"/>
+  </g>
+</svg>

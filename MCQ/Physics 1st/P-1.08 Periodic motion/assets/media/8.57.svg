@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="-2 -2 509.46450424194336 254"
+   width="509.46450424194336"
+   height="254"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="8.57.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.1219056"
+     inkscape:cx="157.76728"
+     inkscape:cy="196.98626"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12" />
+  <defs
+     id="defs1">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="10"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 10 5 L 0 10 z"
+         fill="black"
+         id="path1" />
+    </marker>
+  </defs>
+  <line
+     x1="80"
+     y1="150"
+     x2="450"
+     y2="150"
+     stroke="black"
+     stroke-width="2"
+     marker-end="url(#arrow)"
+     id="line1" />
+  <line
+     x1="80"
+     y1="220"
+     x2="80"
+     y2="50"
+     stroke="black"
+     stroke-width="2"
+     id="line2" />
+  <line
+     x1="50"
+     y1="180"
+     x2="50"
+     y2="140"
+     stroke="black"
+     stroke-width="2"
+     marker-end="url(#arrow)"
+     id="line3" />
+  <text
+     x="460"
+     y="155"
+     font-family="serif"
+     font-size="18"
+     font-weight="bold"
+     id="text3">t (sec)</text>
+  <text
+     x="50"
+     y="70"
+     font-family="serif"
+     font-size="18"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text4">y</text>
+  <text
+     x="50"
+     y="90"
+     font-family="serif"
+     font-size="18"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text5">(cm)</text>
+  <path
+     d="M 80 150 C 110 50 140 50 170 150 C 200 250 230 250 260 150 C 290 50 320 50 350 150 C 380 250 410 250 440 150"
+     fill="none"
+     stroke="black"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path5" />
+  <line
+     x1="125"
+     y1="150"
+     x2="125"
+     y2="140"
+     stroke="black"
+     stroke-width="2"
+     id="line5" />
+  <text
+     x="125"
+     y="175"
+     font-family="sans-serif"
+     font-size="18"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text6">2</text>
+  <line
+     x1="215"
+     y1="150"
+     x2="215"
+     y2="140"
+     stroke="black"
+     stroke-width="2"
+     id="line6" />
+  <text
+     x="215"
+     y="175"
+     font-family="sans-serif"
+     font-size="18"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text7">4</text>
+  <circle
+     cx="305"
+     cy="150"
+     r="4"
+     fill="black"
+     id="circle7" />
+  <text
+     x="305"
+     y="175"
+     font-family="sans-serif"
+     font-size="18"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text8">6</text>
+  <line
+     x1="395"
+     y1="150"
+     x2="395"
+     y2="140"
+     stroke="black"
+     stroke-width="2"
+     id="line8" />
+  <text
+     x="395"
+     y="175"
+     font-family="sans-serif"
+     font-size="18"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text9">8</text>
+  <line
+     x1="125"
+     y1="80"
+     x2="125"
+     y2="30"
+     stroke="black"
+     stroke-width="2"
+     id="line9" />
+  <line
+     x1="441"
+     y1="80"
+     x2="441"
+     y2="30"
+     stroke="#000000"
+     stroke-width="2"
+     id="line10" />
+  <line
+     x1="234.81744"
+     y1="50"
+     x2="125"
+     y2="50"
+     stroke="#000000"
+     stroke-width="2"
+     marker-end="url(#arrow)"
+     id="line11" />
+  <line
+     x1="313.80142"
+     y1="50"
+     x2="441"
+     y2="50"
+     stroke="#000000"
+     stroke-width="3.04151"
+     marker-end="url(#arrow)"
+     id="line12"
+     style="stroke-width:2;stroke-dasharray:none" />
+  <text
+     x="275"
+     y="55"
+     font-family="sans-serif"
+     font-size="18px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text12">70 cm</text>
+</svg>

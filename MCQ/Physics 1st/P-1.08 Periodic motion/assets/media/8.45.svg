@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 618.37842 251.5"
+   width="618.37842"
+   height="251.5"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="8.45.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.71355984"
+     inkscape:cx="546.55542"
+     inkscape:cy="343.34892"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="618.37842"
+       height="251.5"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <line
+     x1="86.780273"
+     y1="187.54788"
+     x2="86.780273"
+     y2="21.088951"
+     stroke="#000000"
+     stroke-width="2.08074"
+     marker-end="url(#arrow)"
+     id="line1" />
+  <line
+     x1="86.780273"
+     y1="154.25609"
+     x2="486.28168"
+     y2="154.25609"
+     stroke="#000000"
+     stroke-width="2.08074"
+     marker-end="url(#arrow)"
+     id="line2" />
+  <text
+     x="-24.117691"
+     y="71.174362"
+     font-family="sans-serif"
+     font-size="31.8093px"
+     font-weight="bold"
+     text-anchor="end"
+     id="text2"
+     transform="rotate(-90)"
+     style="stroke-width:1.44588">সরণ</text>
+  <text
+     x="498.14548"
+     y="168.17735"
+     font-family="sans-serif"
+     font-size="36.622px"
+     font-weight="bold"
+     id="text3"
+     style="stroke-width:1.66464">সময়</text>
+  <line
+     x1="170.00974"
+     y1="154.25609"
+     x2="170.00974"
+     y2="145.93315"
+     stroke="#000000"
+     stroke-width="2.08074"
+     id="line3" />
+  <line
+     x1="253.2392"
+     y1="154.25609"
+     x2="253.2392"
+     y2="145.93315"
+     stroke="#000000"
+     stroke-width="2.08074"
+     id="line4" />
+  <line
+     x1="336.46866"
+     y1="154.25609"
+     x2="336.46866"
+     y2="145.93315"
+     stroke="#000000"
+     stroke-width="2.08074"
+     id="line5" />
+  <line
+     x1="419.69812"
+     y1="154.25609"
+     x2="419.69812"
+     y2="145.93315"
+     stroke="#000000"
+     stroke-width="2.08074"
+     id="line6" />
+  <path
+     d="m 86.780275,154.25609 c 24.968835,-99.875353 58.260615,-99.875353 83.229455,0 24.96884,99.87535 58.26063,99.87535 83.22946,0 24.96884,-99.875353 58.26063,-99.875353 83.22947,0 24.96883,99.87535 58.26062,99.87535 83.22946,0 24.96884,-99.875353 41.61473,-99.875353 49.93767,-49.93768"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2.49688"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path6" />
+  <text
+     x="69.066849"
+     y="193.41078"
+     font-family="serif"
+     font-size="33.1121px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text6"
+     style="stroke-width:1.5051">O</text>
+  <text
+     x="129.28261"
+     y="189.84834"
+     font-family="serif"
+     font-size="33.0507px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text7"
+     style="stroke-width:1.50231">A</text>
+  <text
+     x="291.00238"
+     y="191.93417"
+     font-family="serif"
+     font-size="31.2204px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text8"
+     style="stroke-width:1.41911">B</text>
+  <text
+     x="372.64163"
+     y="195.41461"
+     font-family="serif"
+     font-size="36.071px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text9"
+     style="stroke-width:1.63959">C</text>
+  <text
+     x="296.77252"
+     y="70.283981"
+     font-family="serif"
+     font-size="34.438px"
+     font-weight="bold"
+     text-anchor="middle"
+     id="text11"
+     style="stroke-width:1.56536">P</text>
+  <rect
+     style="fill:#000000;fill-rule:evenodd;stroke-width:1.28091;stroke-linecap:square;paint-order:stroke fill markers"
+     id="rect2"
+     width="3.4991937"
+     height="17.401985"
+     x="128.25175"
+     y="145.5551" />
+  <rect
+     style="fill:#000000;fill-rule:evenodd;stroke-width:1.28091;stroke-linecap:square;paint-order:stroke fill markers"
+     id="rect3"
+     width="3.4991937"
+     height="17.401985"
+     x="210.33701"
+     y="145.5551" />
+  <rect
+     style="fill:#000000;fill-rule:evenodd;stroke-width:1.28091;stroke-linecap:square;paint-order:stroke fill markers"
+     id="rect4"
+     width="3.4991937"
+     height="17.401985"
+     x="299.20575"
+     y="145.5551" />
+  <rect
+     style="fill:#000000;fill-rule:evenodd;stroke-width:1.28091;stroke-linecap:square;paint-order:stroke fill markers"
+     id="rect5"
+     width="3.4991937"
+     height="17.401985"
+     x="377.1463"
+     y="145.5551" />
+</svg>
