@@ -60,7 +60,7 @@ def extract_metadata(q_content):
 
 def meta_list(meta, field):
     val = meta.get(field, "")
-    return [x.strip() for x in val.split(",") if x.strip()] if val else []
+    return [x.strip() for x in re.split(r"\s*,\s*|\s+(?=#)", val) if x.strip()] if val else []
 
 
 def build_db():

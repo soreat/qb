@@ -2344,275 +2344,7 @@
                 img.replaceWith(el);
             }
 
-            // ── LaTeX → plain text/HTML, for Word export only ────────────────────────────
-            // Word's .doc HTML import cannot render MathJax's CHTML output (which relies on
-            // CSS positioning/pseudo-elements/hidden assistive-MathML for accessibility);
-            // the result is duplicated or missing digits ("N200 N" instead of "200 N").
-            // Instead of fighting that, Word-bound math is converted to plain Unicode
-            // symbols + native <sup>/<sub> tags, which Word renders correctly natively.
-            function findClosingBrace(str, openIdx) {
-                let depth = 1,
-                    i = openIdx;
-                while (i < str.length && depth > 0) {
-                    if (str[i] === "{") depth++;
-                    else if (str[i] === "}") depth--;
-                    i++;
-                }
-                return i - 1;
-            }
-            function extractCommandArg(str, cmdName, transform) {
-                let result = "",
-                    i = 0;
-                const re = new RegExp(
-                    cmdName.replace(/\\/g, "\\\\") + "\\s*\\{",
-                );
-                while (true) {
-                    const rest = str.slice(i);
-                    const m = re.exec(rest);
-                    if (!m) {
-                        result += rest;
-                        break;
-                    }
-                    const matchStart = i + m.index;
-                    const openIdx = matchStart + m[0].length;
-                    result += str.slice(i, matchStart);
-                    const closeIdx = findClosingBrace(str, openIdx);
-                    if (closeIdx > str.length) {
-                        result += str.slice(matchStart);
-                        break;
-                    } // malformed, bail safely
-                    const inner = str.slice(openIdx, closeIdx);
-                    result += transform(inner);
-                    i = closeIdx + 1;
-                }
-                return result;
-            }
-            // ── LaTeX → Word-compatible plain text (recursive, handles all nesting) ─────
-            // The key architectural change from the previous version:
-            //
-            //   PROBLEM 1 — CSS stacked fractions: my earlier `display:inline-block`
-            //   fraction looked perfect in the browser preview (which supports CSS) but
-            //   Word's HTML import completely ignores those CSS properties, so numerator
-            //   and denominator were concatenated as raw text: "MR²/2" → "MR²2".
-            //
-            //   PROBLEM 2 — Non-recursive processing: \sqrt{\frac{3}{4}} was broken
-            //   because \sqrt was processed first via extractCommandArg → its argument
-            //   was passed to convertInner, which doesn't handle \frac → "√ frac34".
-            //
-            //   FIX: three mutually-recursive functions (processFrac / processSqrt /
-            //   processFracAndInner) that call each other, so any depth of nesting
-            //   always works.  Fractions are rendered as plain "num/den" text which
-            //   is readable and reliable in BOTH browsers and Word.
 
-            // Core symbol/exponent converter — no structural LaTeX, just atoms.
-            function convertInner(str) {
-                let s = str;
-                const symbolMap = [
-                    ["\\Delta", "Δ"],
-                    ["\\Lambda", "Λ"],
-                    ["\\Theta", "Θ"],
-                    ["\\Sigma", "Σ"],
-                    ["\\Phi", "Φ"],
-                    ["\\Omega", "Ω"],
-                    ["\\Pi", "Π"],
-                    ["\\Gamma", "Γ"],
-                    ["\\Xi", "Ξ"],
-                    ["\\Psi", "Ψ"],
-                    ["\\varepsilon", "ε"],
-                    ["\\alpha", "α"],
-                    ["\\beta", "β"],
-                    ["\\gamma", "γ"],
-                    ["\\delta", "δ"],
-                    ["\\epsilon", "ε"],
-                    ["\\zeta", "ζ"],
-                    ["\\eta", "η"],
-                    ["\\vartheta", "θ"],
-                    ["\\theta", "θ"],
-                    ["\\iota", "ι"],
-                    ["\\kappa", "κ"],
-                    ["\\lambda", "λ"],
-                    ["\\mu", "μ"],
-                    ["\\nu", "ν"],
-                    ["\\xi", "ξ"],
-                    ["\\varpi", "π"],
-                    ["\\pi", "π"],
-                    ["\\rho", "ρ"],
-                    ["\\varsigma", "σ"],
-                    ["\\sigma", "σ"],
-                    ["\\tau", "τ"],
-                    ["\\upsilon", "υ"],
-                    ["\\varphi", "φ"],
-                    ["\\phi", "φ"],
-                    ["\\chi", "χ"],
-                    ["\\psi", "ψ"],
-                    ["\\omega", "ω"],
-                    ["\\times", "×"],
-                    ["\\div", "÷"],
-                    ["\\pm", "±"],
-                    ["\\mp", "∓"],
-                    ["\\cdot", "·"],
-                    ["\\ast", "∗"],
-                    ["\\rightarrow", "→"],
-                    ["\\Rightarrow", "⇒"],
-                    ["\\leftarrow", "←"],
-                    ["\\Leftarrow", "⇐"],
-                    ["\\leftrightarrow", "↔"],
-                    ["\\Leftrightarrow", "⇔"],
-                    ["\\to", "→"],
-                    ["\\leq", "≤"],
-                    ["\\le", "≤"],
-                    ["\\geq", "≥"],
-                    ["\\ge", "≥"],
-                    ["\\neq", "≠"],
-                    ["\\ne", "≠"],
-                    ["\\approx", "≈"],
-                    ["\\equiv", "≡"],
-                    ["\\propto", "∝"],
-                    ["\\sim", "∼"],
-                    ["\\cong", "≅"],
-                    ["\\infty", "∞"],
-                    ["\\partial", "∂"],
-                    ["\\nabla", "∇"],
-                    ["\\sum", "∑"],
-                    ["\\int", "∫"],
-                    ["\\prod", "∏"],
-                    ["\\oint", "∮"],
-                    ["\\circ", "°"],
-                    ["\\degree", "°"],
-                    ["\\perp", "⊥"],
-                    ["\\parallel", "∥"],
-                    ["\\angle", "∠"],
-                    ["\\%", "%"],
-                    ["\\&", "&"],
-                    ["\\_", "_"],
-                    ["\\#", "#"],
-                    ["\\quad", "  "],
-                    ["\\qquad", "    "],
-                    ["\\,", " "],
-                    ["\\;", " "],
-                    ["\\!", ""],
-                    ["\\dots", "…"],
-                    ["\\ldots", "…"],
-                    ["\\cdots", "⋯"],
-                ];
-                symbolMap.forEach(([pat, rep]) => {
-                    const esc = pat.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-                    s = s.replace(new RegExp(esc + "(?![a-zA-Z])", "g"), rep);
-                });
-                s = s.replace(/\^\{([^{}]*)\}/g, "<sup>$1</sup>");
-                s = s.replace(/\^([A-Za-z0-9])/g, "<sup>$1</sup>");
-                s = s.replace(/_\{([^{}]*)\}/g, "<sub>$1</sub>");
-                s = s.replace(/_([A-Za-z0-9])/g, "<sub>$1</sub>");
-                s = s.replace(/\\([a-zA-Z]+)/g, "$1"); // strip remaining unmapped commands
-                s = s.replace(/[{}]/g, "");
-                return s;
-            }
-
-            // Processes \frac{num}{den} → "num/den" with both sides recursively processed.
-            // Plain "/" is readable in both browsers AND Word — no CSS required.
-            function processFrac(str) {
-                let out = "",
-                    i = 0;
-                const re = /\\frac\s*\{/;
-                while (true) {
-                    const rest = str.slice(i);
-                    const m = re.exec(rest);
-                    if (!m) {
-                        out += rest;
-                        break;
-                    }
-                    const start = i + m.index;
-                    const numOpen = start + m[0].length;
-                    const numClose = findClosingBrace(str, numOpen);
-                    let j = numClose + 1;
-                    while (j < str.length && /\s/.test(str[j])) j++;
-                    if (str[j] !== "{") {
-                        out += str.slice(i, numClose + 1);
-                        i = numClose + 1;
-                        continue;
-                    }
-                    const denOpen = j + 1;
-                    const denClose = findClosingBrace(str, denOpen);
-                    // Recurse into both num and den — this handles \frac inside \frac,
-                    // \sqrt inside a fraction, etc. correctly at any nesting depth.
-                    const num = processFracAndInner(
-                        str.slice(numOpen, numClose),
-                    );
-                    const den = processFracAndInner(
-                        str.slice(denOpen, denClose),
-                    );
-                    out += str.slice(i, start) + num + "/" + den;
-                    i = denClose + 1;
-                }
-                return out;
-            }
-
-            // Processes \sqrt{x} → √(x)  and  \sqrt[n]{x} → ⁿ√(x).
-            // The argument is recursively processed so \sqrt{\frac{3}{4}} → √(3/4).
-            function processSqrt(str) {
-                // \sqrt[n]{x} — index n is also recursively processed
-                str = str.replace(
-                    /\\sqrt\[([^\]]*)\]\{([^{}]*)\}/g,
-                    (m, n, x) =>
-                        `<sup>${processFracAndInner(n)}</sup>√(${processFracAndInner(x)})`,
-                );
-                // \sqrt{x} via balanced-brace extraction so the argument can itself contain braces
-                str = extractCommandArg(
-                    str,
-                    "\\sqrt",
-                    (inner) => `√(${processFracAndInner(inner)})`,
-                );
-                return str;
-            }
-
-            // Full converter for a LaTeX sub-expression: frac → sqrt → symbols/exponents.
-            // Called recursively by processFrac and processSqrt for nested arguments.
-            function processFracAndInner(str) {
-                str = processFrac(str); // \frac first — its args may contain \sqrt
-                str = processSqrt(str); // \sqrt second — its arg is now frac-free
-                return convertInner(str); // symbols, Greek letters, ^, _ last
-            }
-
-            function convertMathSegment(latex) {
-                let s = latex;
-                s = s.replace(/\\left|\\right/g, "");
-                // Commands whose argument should be recursively processed
-                s = extractCommandArg(s, "\\text", (inner) => inner);
-                s = extractCommandArg(s, "\\mathrm", (inner) => inner);
-                s = extractCommandArg(
-                    s,
-                    "\\mathbf",
-                    (inner) => `<b>${processFracAndInner(inner)}</b>`,
-                );
-                s = extractCommandArg(
-                    s,
-                    "\\overline",
-                    (inner) =>
-                        `<span style="text-decoration:overline">${processFracAndInner(inner)}</span>`,
-                );
-                s = extractCommandArg(
-                    s,
-                    "\\vec",
-                    (inner) =>
-                        `<span style="text-decoration:overline">${processFracAndInner(inner)}</span>`,
-                );
-                // Degree symbol BEFORE generic ^ so "x^\circ" doesn't leave a stray "^"
-                s = s.replace(/\^\s*\{\s*\\circ\s*\}/g, "°");
-                s = s.replace(/\^\s*\\circ\b/g, "°");
-                // Full recursive processing of the remaining expression
-                return processFracAndInner(s).trim();
-            }
-
-            function convertLatexForWord(text) {
-                if (!text) return text;
-                let out = text.replace(/\$\$([^$]+?)\$\$/g, (m, inner) =>
-                    convertMathSegment(inner),
-                );
-                out = out.replace(/\$([^$]+?)\$/g, (m, inner) =>
-                    convertMathSegment(inner),
-                );
-                return out;
-            }
 
             // ── Code blocks / inline code ────────────────────────────────────────────────
             // Obsidian-style backtick code must render as literal text, not be interpreted
@@ -4139,15 +3871,15 @@
                 b: "Biology",
                 m: "Higher Math",
                 e: "English",
-                i: "ICT",
-                a: "Bangla",
+                i: "ICT", ict: "ICT",
+                a: "Bangla", ban: "Bangla",
                 z: "Zoology",
                 g: "Botany",
                 x: "Economics",
             };
             function parseSubjectCode(raw) {
                 const clean = (raw || "").replace(/^#/, "").trim();
-                const m = clean.match(/^([a-zA-Z]+)[\s_-]*(\d+)$/);
+                const m = clean.match(/^([a-zA-Z]+)[\s_-]*(\d+)?$/);
                 if (!m)
                     return {
                         subjectName: clean || "Uncategorized",
@@ -4161,7 +3893,7 @@
                 const ord = { 1: "1st", 2: "2nd", 3: "3rd", 4: "4th" };
                 return {
                     subjectName,
-                    paperLabel: `${ord[num] || num + "th"} Paper`,
+                    paperLabel: num ? `${ord[num] || num + "th"} Paper` : "",
                 };
             }
             function getGroupValueForLevel(q, levelKey) {
@@ -4384,7 +4116,7 @@
                                 "mjx-assistive-mml math, mjx-assistive-mml > math",
                             );
                             if (mathEl) {
-                                const clean = mathEl.cloneNode(true);
+                                const clean = mathEl.cloneNode(true); clean.querySelectorAll('mrow[data-mjx-texclass="ORD"] > mover').forEach((m) => m.setAttribute("accent", "true")); clean.querySelectorAll('mrow[data-mjx-texclass="ORD"] > munder').forEach((m) => m.setAttribute("accentunder", "true"));
                                 // Remove accessibility attributes that aren't needed in Word HTML
                                 clean.removeAttribute("aria-hidden");
                                 clean.removeAttribute("unselectable");
