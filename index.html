@@ -166,6 +166,7 @@
             }
             input[type="number"] {
                 -moz-appearance: textfield;
+                appearance: textfield;
             }
 
             #live-preview {
@@ -2344,8 +2345,6 @@
                 img.replaceWith(el);
             }
 
-
-
             // ── Code blocks / inline code ────────────────────────────────────────────────
             // Obsidian-style backtick code must render as literal text, not be interpreted
             // as real HTML tags (e.g. `<link>` was vanishing because the browser's parser
@@ -2585,7 +2584,7 @@
                 };
                 questionsArray.forEach((q) => {
                     if (q.subject) sub.add(q.subject);
-                    if (q.chapter) ch.add(q.chapter);
+                    if (q.chapter) q.chapter.forEach((c) => ch.add(c));
                     q.metadata?.topic?.forEach((t) => top.add(t));
                     if (q.source) src.add(q.source);
                     if (q.metadata?.board?.length) src.add("Board");
@@ -2701,7 +2700,7 @@
                     if (search && !ss.includes(search)) return false;
                     if (subject !== "all" && q.subject !== subject)
                         return false;
-                    if (chapter !== "all" && q.chapter !== chapter)
+                    if (chapter !== "all" && !q.chapter?.includes(chapter))
                         return false;
                     if (
                         topic !== "all" &&
@@ -2915,8 +2914,8 @@
       <div class="mt-3.5 pt-3 border-t border-slate-100 dark:border-slate-700/40 flex items-center justify-between gap-3 min-h-[20px]">
         <div class="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500 min-w-0 flex-1 flex-wrap">
           ${q.subject ? `<span class="font-semibold text-slate-500 dark:text-slate-400 truncate">${q.subject}</span>` : ""}
-          ${q.subject && q.chapter ? `<span class="text-slate-300 dark:text-slate-700 shrink-0">·</span>` : ""}
-          ${q.chapter ? `<span class="truncate">${q.chapter}</span>` : ""}
+          }${q.subject && q.chapter?.length ? `<span class="text-slate-300 dark:text-slate-700 shrink-0">·</span>` : ""}
+          ${q.chapter?.length ? `<span class="truncate">${q.chapter.join(", ")}</span>` : ""}
           ${q.metadata?.book_question_number ? `<span class="text-slate-300 dark:text-slate-700 shrink-0">·</span><span class="font-mono text-primary/60 dark:text-indigo-400/60 text-[10px] shrink-0">Q.${q.metadata.book_question_number}</span>` : ""}
         </div>
         ${tagsHtml ? `<div class="flex items-center gap-1 shrink-0 flex-wrap justify-end">${tagsHtml}</div>` : ""}
@@ -3126,7 +3125,7 @@
       <div class="flex-1 min-w-0 pointer-events-none">
         <div class="text-xs font-medium text-slate-700 dark:text-slate-200 leading-snug">${trunc}</div>
         <div class="text-[10px] text-slate-400 mt-1 flex items-center gap-1 flex-wrap">
-          ${q.subject ? `<span>${q.subject}</span>` : ""}${q.chapter ? `<span class="text-slate-300 dark:text-slate-700">·</span><span>${q.chapter}</span>` : ""}
+          ${q.subject ? `<span>${q.subject}</span>` : ""}${q.chapter?.length ? `<span class="text-slate-300 dark:text-slate-700">·</span><span>${q.chapter.join(", ")}</span>` : ""}
         </div>
       </div>
       <button class="cart-remove-btn shrink-0 p-1 text-slate-300 dark:text-slate-600 hover:text-rose-500 dark:hover:text-rose-400 transition-colors rounded opacity-0 group-hover/ci:opacity-100" data-remove-id="${id}">
@@ -3871,8 +3870,10 @@
                 b: "Biology",
                 m: "Higher Math",
                 e: "English",
-                i: "ICT", ict: "ICT",
-                a: "Bangla", ban: "Bangla",
+                i: "ICT",
+                ict: "ICT",
+                a: "Bangla",
+                ban: "Bangla",
                 z: "Zoology",
                 g: "Botany",
                 x: "Economics",
@@ -4116,7 +4117,21 @@
                                 "mjx-assistive-mml math, mjx-assistive-mml > math",
                             );
                             if (mathEl) {
-                                const clean = mathEl.cloneNode(true); clean.querySelectorAll('mrow[data-mjx-texclass="ORD"] > mover').forEach((m) => m.setAttribute("accent", "true")); clean.querySelectorAll('mrow[data-mjx-texclass="ORD"] > munder').forEach((m) => m.setAttribute("accentunder", "true"));
+                                const clean = mathEl.cloneNode(true);
+                                clean
+                                    .querySelectorAll(
+                                        'mrow[data-mjx-texclass="ORD"] > mover',
+                                    )
+                                    .forEach((m) =>
+                                        m.setAttribute("accent", "true"),
+                                    );
+                                clean
+                                    .querySelectorAll(
+                                        'mrow[data-mjx-texclass="ORD"] > munder',
+                                    )
+                                    .forEach((m) =>
+                                        m.setAttribute("accentunder", "true"),
+                                    );
                                 // Remove accessibility attributes that aren't needed in Word HTML
                                 clean.removeAttribute("aria-hidden");
                                 clean.removeAttribute("unselectable");
@@ -5209,7 +5224,7 @@
                 }
             }
 
-            window.onload = init; 
+            window.onload = init;
         </script>
     </body>
 </html>

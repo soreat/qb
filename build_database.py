@@ -87,7 +87,7 @@ def build_db():
             meta = extract_metadata(q_content)
 
             subject = meta.get("Subject", "")
-            chapter = meta.get("Chapter", "")
+            chapter = meta_list(meta, "Chapter")
             topic = meta_list(meta, "Topic")
             source = meta.get("Source", "")
             q_type = meta.get("Type", "")
