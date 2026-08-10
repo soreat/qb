@@ -2668,7 +2668,7 @@
                     cont?.classList.add("hidden");
                 }
                 applyFilters();
-            } 
+            }
 
             // ── Apply filters ─────────────────────────────────────────────────────────────
             function applyFilters() {
@@ -3918,8 +3918,29 @@
                 }
                 return "Uncategorized";
             }
-            function getSortedGroupKeys(levelKey, keysIterable) {
-                const keys = [...keysIterable];
+            // Natural compare: splits each id into digit / non-digit runs so a numeric
+            // part like "001" vs "110" compares as 1 vs 110, not lexically as strings.
+            // One linear pass over both strings, no recursion — safe on any input,
+            // and it can never loop.
+            function naturalCompare(a, b) {
+                const ax = String(a).match(/\d+|\D+/g) || [];
+                const bx = String(b).match(/\d+|\D+/g) || [];
+                const len = Math.max(ax.length, bx.length);
+                for (let i = 0; i < len; i++) {
+                    const as = ax[i],
+                        bs = bx[i];
+                    if (as === undefined) return -1;
+                    if (bs === undefined) return 1;
+                    const bothNumeric = /^\d+$/.test(as) && /^\d+$/.test(bs);
+                    const cmp = bothNumeric
+                        ? parseInt(as, 10) - parseInt(bs, 10)
+                        : as.localeCompare(bs);
+                    if (cmp !== 0) return cmp;
+                }
+                return 0;
+            }
+            function getSortedGroupKeys(levelKey, buckets) {
+                const keys = [...buckets.keys()];
                 if (levelKey === "type") {
                     const order = { MCQ: 0, CQ: 1, Question: 2 };
                     return keys.sort(
@@ -3932,6 +3953,27 @@
                         return m ? parseInt(m[1]) : 99;
                     };
                     return keys.sort((a, b) => num(a) - num(b));
+                }
+                if (levelKey === "topic") {
+                    // Order topics by the smallest question id inside that topic's
+                    // bucket, so the topic containing e.g. p2c06-001 leads, then
+                    // whichever topic holds the next-lowest id, and so on.
+                    const minIdForKey = new Map();
+                    keys.forEach((key) => {
+                        const groupQs = buckets.get(key);
+                        let min = groupQs[0].id;
+                        for (let i = 1; i < groupQs.length; i++) {
+                            if (naturalCompare(groupQs[i].id, min) < 0)
+                                min = groupQs[i].id;
+                        }
+                        minIdForKey.set(key, min);
+                    });
+                    return keys.sort((a, b) =>
+                        naturalCompare(
+                            minIdForKey.get(a),
+                            minIdForKey.get(b),
+                        ),
+                    );
                 }
                 return keys.sort((a, b) => a.localeCompare(b));
             }
@@ -4044,7 +4086,7 @@
                     if (!buckets.has(val)) buckets.set(val, []);
                     buckets.get(val).push(q);
                 });
-                const sortedKeys = getSortedGroupKeys(levelKey, buckets.keys());
+                const sortedKeys = getSortedGroupKeys(levelKey, buckets);
                 return {
                     type: "group",
                     levelKey,
