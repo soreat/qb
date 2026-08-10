@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="276" height="186.62234497070312" viewBox="-8 557.8670349121094 276 186.62234497070312" style="background: none transparent;">
+ 
+    <g transform="translate(0,0)">
+        <line x1="68.0" y1="128.0" x2="68.0" y2="16.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68.0" y1="128.0" x2="232.0" y2="128.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <text x="62.0" y="148.0" font-size="19" font-family="Georgia,serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">O</text>
+        <text x="36.0" y="49.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="27.0" y1="54.0" x2="45.0" y2="54.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="36.0" y="75.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black" transform="translate(0, -5.985881805419922)">v</text>
+        <line x1="36.0" y1="98.0" x2="36.0" y2="76.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="36.0,76.0 38.8,81.8 33.2,81.8" fill="black"/>
+        <line x1="96.0" y1="150.0" x2="126.0" y2="150.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="126.0,150.0 120.2,152.8 120.2,147.2" fill="black"/>
+        <text x="156.0" y="148.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="147.0" y1="153.0" x2="165.0" y2="153.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="156.0" y="174.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black">u</text>
+        <path d="M68,128 L150,20" stroke="black" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(0,188)">
+        <line x1="68.0" y1="128.0" x2="68.0" y2="16.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68.0" y1="128.0" x2="232.0" y2="128.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <text x="62.0" y="148.0" font-size="19" font-family="Georgia,serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">O</text>
+        <text x="36.0" y="49.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="27.0" y1="54.0" x2="45.0" y2="54.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="36.0" y="75.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black" transform="translate(0, -5.985870361328125)">v</text>
+        <line x1="36.0" y1="98.0" x2="36.0" y2="76.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="36.0,76.0 38.8,81.8 33.2,81.8" fill="black"/>
+        <line x1="96.0" y1="150.0" x2="126.0" y2="150.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="126.0,150.0 120.2,152.8 120.2,147.2" fill="black"/>
+        <text x="156.0" y="148.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="147.0" y1="153.0" x2="165.0" y2="153.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="156.0" y="174.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black">u</text>
+        <path d="M68,82 L222,82" stroke="black" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(0,376)">
+        <line x1="68.0" y1="128.0" x2="68.0" y2="16.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68.0" y1="128.0" x2="232.0" y2="128.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <text x="62.0" y="148.0" font-size="19" font-family="Georgia,serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">O</text>
+        <text x="36.0" y="49.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="27.0" y1="54.0" x2="45.0" y2="54.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="36.0" y="75.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black" transform="translate(0, -5.98590087890625)">v</text>
+        <line x1="36.0" y1="98.0" x2="36.0" y2="76.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="36.0,76.0 38.8,81.8 33.2,81.8" fill="black"/>
+        <line x1="96.0" y1="150.0" x2="126.0" y2="150.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="126.0,150.0 120.2,152.8 120.2,147.2" fill="black"/>
+        <text x="156.0" y="148.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="147.0" y1="153.0" x2="165.0" y2="153.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="156.0" y="174.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black">u</text>
+        <path d="M68,82 L198,20" stroke="black" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(0,564)">
+        <line x1="68.0" y1="128.0" x2="68.0" y2="16.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68.0" y1="128.0" x2="232.0" y2="128.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+        <text x="62.0" y="148.0" font-size="19" font-family="Georgia,serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">O</text>
+        <text x="36.0" y="49.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="27.0" y1="54.0" x2="45.0" y2="54.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="36.0" y="75.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black" transform="translate(0, -5.98590087890625)">v</text>
+        <line x1="36.0" y1="98.0" x2="36.0" y2="76.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="36.0,76.0 38.8,81.8 33.2,81.8" fill="black"/>
+        <line x1="96.0" y1="150.0" x2="126.0" y2="150.0" stroke="black" stroke-width="2.3" stroke-linecap="round"/>
+        <polygon points="126.0,150.0 120.2,152.8 120.2,147.2" fill="black"/>
+        <text x="156.0" y="148.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="normal" font-weight="normal" text-anchor="middle" fill="black">1</text>
+        <line x1="147.0" y1="153.0" x2="165.0" y2="153.0" stroke="black" stroke-width="2" stroke-linecap="round"/><text x="156.0" y="174.0" font-size="19" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-weight="normal" text-anchor="middle" fill="black">u</text>
+        <path d="M68,22 L170,128 L222,128" stroke="black" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</svg>

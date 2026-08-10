@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="462" height="182" viewBox="-2 -2 462 182" style="background: none transparent;">
+
+<line x1="65.0" y1="57.0" x2="445.0" y2="57.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<line x1="65.0" y1="108.0" x2="445.0" y2="108.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<line x1="65.0" y1="163.0" x2="445.0" y2="163.0" stroke="black" stroke-width="3" stroke-linecap="round"/>
+<path d="M130,3 L200,57 L225,108 L325,153" stroke="black" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="165.0,30.0 157.2,28.4 161.4,22.8" fill="black"/>
+<polygon points="212.5,82.5 206.2,77.6 212.5,74.5" fill="black"/>
+<polygon points="325.0,153.0 315.0,153.3 318.6,145.3" fill="black"/>
+<text x="235" y="34" font-size="24" font-family="'Noto Sans Bengali','Nirmala UI','Noto Sans',sans-serif" fill="black">বেগ<tspan font-family="Georgia,serif"> = </tspan><tspan font-family="Georgia,serif" font-style="italic">v</tspan><tspan font-size="15" dy="6" font-family="Georgia,serif">1</tspan></text>
+<text x="235" y="85" font-size="24" font-family="'Noto Sans Bengali','Nirmala UI','Noto Sans',sans-serif" fill="black">বেগ<tspan font-family="Georgia,serif"> = </tspan><tspan font-family="Georgia,serif" font-style="italic">v</tspan><tspan font-size="15" dy="6" font-family="Georgia,serif">2</tspan></text>
+<text x="340" y="140" font-size="24" font-family="'Noto Sans Bengali','Nirmala UI','Noto Sans',sans-serif" fill="black">বেগ<tspan font-family="Georgia,serif"> = </tspan><tspan font-family="Georgia,serif" font-style="italic">v</tspan><tspan font-size="15" dy="6" font-family="Georgia,serif">3</tspan></text>
+</svg>
