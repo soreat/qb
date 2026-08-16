@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="260"
+   height="260"
+   viewBox="0 0 260 260"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="image3_circle_inward.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="0.7"
+       markerHeight="0.7"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="3.1"
+     inkscape:cx="130"
+     inkscape:cy="130"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12" />
+  <circle
+     cx="130"
+     cy="130"
+     r="43.903305"
+     stroke="#000000"
+     stroke-width="3.2"
+     fill="none"
+     id="circle1" />
+  <line
+     x1="130.0"
+     y1="25.0"
+     x2="130.0"
+     y2="70.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line1"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="182.5"
+     y1="39.1"
+     x2="160.0"
+     y2="78.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line2"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="220.9"
+     y1="77.5"
+     x2="182.0"
+     y2="100.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line3"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="235.0"
+     y1="130.0"
+     x2="190.0"
+     y2="130.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line4"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="220.9"
+     y1="182.5"
+     x2="182.0"
+     y2="160.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line5"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="182.5"
+     y1="220.9"
+     x2="160.0"
+     y2="182.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line6"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="130.0"
+     y1="235.0"
+     x2="130.0"
+     y2="190.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line7"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="77.5"
+     y1="220.9"
+     x2="100.0"
+     y2="182.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line8"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="39.1"
+     y1="182.5"
+     x2="78.0"
+     y2="160.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line9"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="25.0"
+     y1="130.0"
+     x2="70.0"
+     y2="130.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line10"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="39.1"
+     y1="77.5"
+     x2="78.0"
+     y2="100.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line11"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="77.5"
+     y1="39.1"
+     x2="100.0"
+     y2="78.0"
+     stroke="black"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line12"
+     style="marker-end:url(#Triangle)" />
+</svg>

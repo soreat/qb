@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="370"
+   height="260"
+   viewBox="0 0 370 260"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="image8_triangle_PQR.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="3.1"
+     inkscape:cx="271.77419"
+     inkscape:cy="101.93548"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <line
+     x1="52.706318"
+     y1="221.60332"
+     x2="182.94214"
+     y2="37.388172"
+     stroke="#000000"
+     stroke-width="2.77587"
+     stroke-linecap="round"
+     id="line1" />
+  <polygon
+     points="107.7,135.4 102,131.3 109,127.5 "
+     fill="#000000"
+     id="polygon1"
+     transform="matrix(2.7961243,0,0,2.7961243,-180.16573,-234.67038)" />
+  <line
+     x1="182.94214"
+     y1="37.388172"
+     x2="313.17798"
+     y2="221.60332"
+     stroke="#000000"
+     stroke-width="2.77587"
+     stroke-linecap="round"
+     id="line2" />
+  <polygon
+     points="254,123.7 259.7,119.6 261,127.5 "
+     fill="#000000"
+     id="polygon2"
+     transform="matrix(2.767122,0,0,2.767122,-462.67525,-207.12466)" />
+  <line
+     x1="52.706318"
+     y1="221.60332"
+     x2="313.17798"
+     y2="221.60332"
+     stroke="#000000"
+     stroke-width="2.77587"
+     stroke-linecap="round"
+     id="line3" />
+  <polygon
+     points="177.8,231.5 185,235 177.8,238.5 "
+     fill="#000000"
+     id="polygon3"
+     transform="matrix(2.5288627,0,0,-2.5288627,-278.87808,815.88605)" />
+  <text
+     x="183.1622"
+     y="30.201498"
+     font-size="31.2502px"
+     font-family="Georgia, 'Times New Roman', serif"
+     font-style="normal"
+     font-weight="normal"
+     text-anchor="middle"
+     fill="#000000"
+     id="text3"
+     style="stroke-width:1.42046">B</text>
+  <text
+     x="29.910294"
+     y="239.4267"
+     font-size="31.8205px"
+     font-family="Georgia, 'Times New Roman', serif"
+     font-style="normal"
+     font-weight="normal"
+     text-anchor="middle"
+     fill="#000000"
+     id="text4"
+     style="stroke-width:1.44638">A</text>
+  <text
+     x="340.78418"
+     y="240.7795"
+     font-size="34.0201px"
+     font-family="Georgia, 'Times New Roman', serif"
+     font-style="normal"
+     font-weight="normal"
+     text-anchor="middle"
+     fill="#000000"
+     id="text5"
+     style="stroke-width:1.54636">C</text>
+  <text
+     x="87.235077"
+     y="111.38437"
+     font-size="16.4648px"
+     text-anchor="middle"
+     fill="#000000"
+     id="text6"
+     style="stroke-width:1.41938;stroke:#000000;stroke-opacity:1">→</text>
+  <text
+     x="87.235077"
+     y="131.83635"
+     font-size="29.8071px"
+     font-family="Georgia, serif"
+     font-style="italic"
+     text-anchor="middle"
+     fill="#000000"
+     id="text7"
+     style="stroke-width:1.41938">R</text>
+  <text
+     x="278.68192"
+     y="110.48338"
+     font-size="16.3745px"
+     text-anchor="middle"
+     fill="#000000"
+     id="text8"
+     style="stroke-width:1.4116;stroke:#000000;stroke-opacity:1">→</text>
+  <text
+     x="278.68192"
+     y="130.83429"
+     font-size="29.6439px"
+     font-family="Georgia, serif"
+     font-style="italic"
+     text-anchor="middle"
+     fill="#000000"
+     id="text9"
+     style="stroke-width:1.4116">Q</text>
+  <text
+     x="182.83324"
+     y="238.50571"
+     font-size="17.3949px"
+     text-anchor="middle"
+     fill="#000000"
+     id="text10"
+     style="stroke-width:1.49956;stroke:#000000;stroke-opacity:1">→</text>
+  <text
+     x="182.83324"
+     y="260"
+     font-size="31.4909px"
+     font-family="Georgia, serif"
+     font-style="italic"
+     text-anchor="middle"
+     fill="#000000"
+     id="text11"
+     style="stroke-width:1.49956">P</text>
+</svg>

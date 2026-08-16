@@ -3589,10 +3589,6 @@
                     "exp-group-l2",
                     "exp-group-l3",
                     "exp-group-l4",
-                    "exp-color-l1",
-                    "exp-color-l2",
-                    "exp-color-l3",
-                    "exp-color-l4",
                     "exp-show-headerfields",
                     "exp-hf-name-on",
                     "exp-hf-name-label",
@@ -3609,13 +3605,9 @@
                     "exp-optlayout",
                     "exp-meta",
                     "exp-exp",
-                    "exp-fontsize",
                     "exp-optgap",
                     "exp-qspace",
                     "exp-charlimit",
-                    "exp-mathscale",
-                    "exp-font-bn",
-                    "exp-font-en",
                     "exp-splitmcq",
                     "exp-mcq-num",
                     "exp-cq-num",
@@ -3639,6 +3631,45 @@
                     if (el) {
                         el.addEventListener("input", schedulePreviewUpdate);
                         el.addEventListener("change", schedulePreviewUpdate);
+                    }
+                });
+                // PERF: colors/font-size/font-family/math-scale never change which
+                // questions exist or a single character of their content — only how
+                // things look — so they skip the full rebuild (re-render every
+                // question + a full MathJax pass) and just update CSS custom
+                // properties / element styles directly via applyPreviewCosmetics().
+                // Word is the one exception for color: Word's HTML import doesn't
+                // understand CSS variables, so its headers bake in a literal hex
+                // color at build time, and changing a color there still needs the
+                // normal full rebuild to take effect in the Word preview/export.
+                ["exp-color-l1", "exp-color-l2", "exp-color-l3", "exp-color-l4"].forEach(
+                    (id) => {
+                        const el = document.getElementById(id);
+                        if (!el) return;
+                        const handler = () => {
+                            if (
+                                document.getElementById("exp-format")
+                                    ?.value === "word"
+                            ) {
+                                schedulePreviewUpdate();
+                            } else {
+                                applyPreviewCosmetics();
+                            }
+                        };
+                        el.addEventListener("input", handler);
+                        el.addEventListener("change", handler);
+                    },
+                );
+                [
+                    "exp-fontsize",
+                    "exp-mathscale",
+                    "exp-font-bn",
+                    "exp-font-en",
+                ].forEach((id) => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.addEventListener("input", applyPreviewCosmetics);
+                        el.addEventListener("change", applyPreviewCosmetics);
                     }
                 });
                 const fmtEl = document.getElementById("exp-format");
@@ -4208,7 +4239,91 @@
                 }
             }
 
+            // ── Preview render cache (perf) ──────────────────────────────────────
+            // Every Export Studio tweak used to force a full rebuild: re-render all
+            // ~139 questions AND have MathJax re-typeset every equation from scratch,
+            // even for a change (a header color, font, math scale) that doesn't touch
+            // a single question's content. _qHtmlCache stores each question's ALREADY
+            // MathJax-typeset markup, keyed by its id + rendered number + a signature
+            // of every setting that actually affects its output (see
+            // buildQuestionContentSignature below); a cache hit skips both re-parsing
+            // AND re-typesetting that question. _previewGeneration guards against a
+            // slow, now-stale update finishing (and overwriting the screen) after a
+            // newer one — possible any time typesetting outlives the 500ms debounce.
+            const _qHtmlCache = new Map();
+            const _Q_HTML_CACHE_MAX = 3000;
+            let _previewGeneration = 0;
+
+            // Small, dependency-free copy of the tint helper used by renderLevelHeaderHTML
+            // (that one lives inside updatePreview's closure) so this lightweight path can
+            // compute the same header tint without depending on a full render having run.
+            function hexToLightTintStandalone(hex, amount) {
+                amount = amount === undefined ? 0.88 : amount;
+                const m = /^#?([0-9a-f]{6})$/i.exec(hex || "");
+                if (!m) return "#eef2ff";
+                const n = parseInt(m[1], 16);
+                const r = (n >> 16) & 255,
+                    g = (n >> 8) & 255,
+                    b = n & 255;
+                const mix = (c) => Math.round(c + (255 - c) * amount);
+                const toHex = (c) => c.toString(16).padStart(2, "0");
+                return "#" + toHex(mix(r)) + toHex(mix(g)) + toHex(mix(b));
+            }
+
+            // Applies colors/font-size/font-family/math-scale directly to the already-
+            // rendered preview, via CSS custom properties and element styles only —
+            // zero DOM rebuild, zero MathJax. Safe to call any time (also called at the
+            // end of a full rebuild, so the two paths never disagree about current
+            // values) since it only touches presentation, never content.
+            function applyPreviewCosmetics() {
+                const previewContainer =
+                    document.getElementById("live-preview");
+                const printContainer = document.getElementById(
+                    "pdf-export-container",
+                );
+                const targets = [previewContainer, printContainer].filter(
+                    Boolean,
+                );
+                if (targets.length === 0) return;
+
+                const defaultColors = {
+                    1: "#4f46e5",
+                    2: "#4f46e5",
+                    3: "#94a3b8",
+                    4: "#64748b",
+                };
+                for (let lvl = 1; lvl <= 4; lvl++) {
+                    const el = document.getElementById(`exp-color-l${lvl}`);
+                    const c = el ? el.value : defaultColors[lvl];
+                    const tint = hexToLightTintStandalone(c);
+                    targets.forEach((t) => {
+                        t.style.setProperty(`--lvl${lvl}-color`, c);
+                        t.style.setProperty(`--lvl${lvl}-tint`, tint);
+                    });
+                }
+
+                const fontSizeEl = document.getElementById("exp-fontsize");
+                const fontSize = fontSizeEl ? fontSizeEl.value : "15";
+                const fontBnEl = document.getElementById("exp-font-bn");
+                const fontEnEl = document.getElementById("exp-font-en");
+                const fontStr = `${fontEnEl ? fontEnEl.value : "July"}, ${fontBnEl ? fontBnEl.value : "July"}, sans-serif`;
+                targets.forEach((t) => {
+                    t.style.fontSize = fontSize + "px";
+                    t.style.fontFamily = fontStr;
+                });
+
+                const mathScaleEl = document.getElementById("exp-mathscale");
+                const mathScale =
+                    parseFloat(mathScaleEl ? mathScaleEl.value : "100") /
+                    100;
+                document.documentElement.style.setProperty(
+                    "--math-scale",
+                    mathScale,
+                );
+            }
+
             function updatePreview() {
+                const myPreviewGeneration = ++_previewGeneration;
                 const getVal = (id, def) => {
                     const el = document.getElementById(id);
                     return el ? el.value : def;
@@ -4229,7 +4344,6 @@
                 const splitMCQ = getCheck("exp-splitmcq", true);
                 const showMeta = getCheck("exp-meta", true);
                 const showExp = getCheck("exp-exp", true);
-                const fontSize = getVal("exp-fontsize", "15");
                 const qSpace = getVal("exp-qspace", "0");
                 const smartCharLimit = parseInt(getVal("exp-charlimit", "35"));
                 const cqNumStyle = getVal("exp-cq-num", "bn_k");
@@ -4511,11 +4625,27 @@
                             ${headerFieldsHTML}
                          </div>`;
 
+                    // Every setting below that renderOneQuestionHTML actually reads. Computed
+                    // ONCE per updatePreview() call (not per question) and combined with each
+                    // question's id + rendered number into a cache key — see _qHtmlCache above.
+                    function buildQuestionContentSignature() {
+                        return [
+                            isWord, cols, showMeta, qNumMt, qNumW, optLayout,
+                            smartCharLimit, optImgScaleCustom, optImgScaleEmpty,
+                            showImgShadow, ansFormat, splitMCQ, showExp,
+                            optLabelMt, optLabelW, optGap, showCqLine,
+                            cqNumStyle, qImgScaleCustom, qImgScaleEmpty,
+                            labels.join(","), qSpace,
+                        ].join("|");
+                    }
+
                     // ── Per-question HTML renderer (PDF/Word) ────────────────────────────────────
                     // Extracted into its own function so it can be invoked uniformly regardless of
                     // how deep the question sits in the new hierarchical grouping — this closure
                     // still has access to all the layout/scale settings read earlier in this call.
-                    function renderOneQuestionHTML(q, qNum) {
+                    // qKey (id + rendered number + content signature) is stamped onto the returned
+                    // root element as data-qkey so a later pass can cache its post-typeset markup.
+                    function renderOneQuestionHTML(q, qNum, qKey) {
                         const qType = q.type ? q.type.toUpperCase() : "#MCQ";
                         const allExamsRaw = [
                             ...(q.metadata?.board || []),
@@ -4756,7 +4886,7 @@
 
                         if (splitMCQ) {
                             return `
-                                <div style="margin-bottom: ${qSpace}px; break-inside: auto; page-break-inside: auto;">
+                                <div data-qkey="${qKey}" style="margin-bottom: ${qSpace}px; break-inside: auto; page-break-inside: auto;">
                                     <div style="margin-bottom: 6px; break-inside: auto; page-break-inside: auto;">${qBodyHTML}</div>
                                     ${optionsHTML ? `<div style="margin-bottom: ${showExp ? "6px" : "0px"}; break-inside: ${avoidClassGrid}; page-break-inside: ${avoidClassGrid};">${optionsHTML}</div>` : ""}
                                     ${expHTML ? `<div style="break-inside: avoid; page-break-inside: avoid;">${expHTML}</div>` : ""}
@@ -4764,7 +4894,7 @@
                             `;
                         } else {
                             return `
-                                <div style="margin-bottom: ${qSpace}px; break-inside: avoid; page-break-inside: avoid;">
+                                <div data-qkey="${qKey}" style="margin-bottom: ${qSpace}px; break-inside: avoid; page-break-inside: avoid;">
                                     ${qBodyHTML}
                                     ${optionsHTML}
                                     ${expHTML}
@@ -4827,15 +4957,27 @@
                         );
                     }
                     function renderLevelHeaderHTML(text, level) {
-                        const col = levelColors[level] || "#64748b";
-                        const tint = hexToLightTint(col);
+                        const literalCol = levelColors[level] || "#64748b";
+                        const literalTint = hexToLightTint(literalCol);
+                        // PERF: on screen/PDF, headers reference a CSS variable (with the
+                        // current color as its fallback) instead of a baked-in hex value,
+                        // so applyPreviewCosmetics() can re-color every header instantly —
+                        // no rebuild, no MathJax — when only a color picker changes. Word's
+                        // HTML import doesn't resolve CSS variables, so Word keeps the
+                        // literal hex baked in exactly as before.
+                        const col = isWord
+                            ? literalCol
+                            : `var(--lvl${level}-color, ${literalCol})`;
+                        const tint = isWord
+                            ? literalTint
+                            : `var(--lvl${level}-tint, ${literalTint})`;
                         if (level === 1)
-                            return `<div class="col-span-all" style="break-after:avoid;page-break-after:avoid;margin:0 0 0.75rem 0;"><h2 style="font-size:1.32em;font-weight:800;padding:10px 16px;background:${col};color:#fff;border-radius:8px;">${text}</h2></div>`;
+                            return `<div data-header="1" class="col-span-all" style="break-after:avoid;page-break-after:avoid;margin:0 0 0.75rem 0;"><h2 style="font-size:1.32em;font-weight:800;padding:10px 16px;background:${col};color:#fff;border-radius:8px;">${text}</h2></div>`;
                         if (level === 2)
-                            return `<div class="col-span-all" style="break-after:avoid;page-break-after:avoid;margin:1rem 0 0.6rem 0;"><h3 style="font-size:1.12em;font-weight:700;padding:6px 14px;background:${tint};color:${col};border-left:4px solid ${col};border-radius:4px;">${text}</h3></div>`;
+                            return `<div data-header="1" class="col-span-all" style="break-after:avoid;page-break-after:avoid;margin:1rem 0 0.6rem 0;"><h3 style="font-size:1.12em;font-weight:700;padding:6px 14px;background:${tint};color:${col};border-left:4px solid ${col};border-radius:4px;">${text}</h3></div>`;
                         if (level === 3)
-                            return `<h4 style="font-size:1.04em;font-weight:700;padding:5px 10px;background:${tint};color:${col};border-left:3px solid ${col};border-radius:3px;margin:0.8rem 0 0.45rem 0;break-after:avoid;page-break-after:avoid;">${text}</h4>`;
-                        return `<div style="font-size:0.92em;font-weight:700;color:${col};text-transform:uppercase;letter-spacing:.04em;margin:0.55rem 0 0.3rem 0;break-after:avoid;page-break-after:avoid;">${text}</div>`;
+                            return `<h4 data-header="1" style="font-size:1.04em;font-weight:700;padding:5px 10px;background:${tint};color:${col};border-left:3px solid ${col};border-radius:3px;margin:0.8rem 0 0.45rem 0;break-after:avoid;page-break-after:avoid;">${text}</h4>`;
+                        return `<div data-header="1" style="font-size:0.92em;font-weight:700;color:${col};text-transform:uppercase;letter-spacing:.04em;margin:0.55rem 0 0.3rem 0;break-after:avoid;page-break-after:avoid;">${text}</div>`;
                     }
 
                     function wrapInColumnLayout(
@@ -4889,6 +5031,9 @@
                     const curContainer = () =>
                         containers[containers.length - 1];
                     let qCounter = 1;
+                    // Computed once for the whole render, not per question — see
+                    // buildQuestionContentSignature's own comment for what it covers.
+                    const qContentSig = buildQuestionContentSignature();
 
                     renderBlocks.forEach((block) => {
                         if (block.type === "header") {
@@ -4913,9 +5058,16 @@
                             if (curContainer().qCount >= MAX_Q_PER_CONTAINER) {
                                 containers.push({ entries: [], qCount: 0 });
                             }
+                            const qKey = `${block.q.id}::${qCounter}::${qContentSig}`;
                             curContainer().entries.push({
                                 kind: "question",
-                                html: renderOneQuestionHTML(block.q, qCounter),
+                                html:
+                                    _qHtmlCache.get(qKey) ||
+                                    renderOneQuestionHTML(
+                                        block.q,
+                                        qCounter,
+                                        qKey,
+                                    ),
                             });
                             qCounter++;
                             curContainer().qCount++;
@@ -4975,58 +5127,61 @@
 
                     workspace.innerHTML = html;
 
+                    // NOTE: no MathJax.typesetClear() here (removed) — workspace is a
+                    // brand-new off-screen div every call (created above), so there is
+                    // nothing on it yet for MathJax to clear. Clearing it would also
+                    // have reverted any question markup that just came back from
+                    // _qHtmlCache already fully typeset, defeating the point of caching it.
+                    const applyRenderedResult = () => {
+                        // A newer updatePreview() call started (and possibly already
+                        // finished) while this call's MathJax typesetting was still
+                        // running — 139 questions can take a while, longer than the
+                        // 500ms debounce, so this can genuinely happen on quick edits.
+                        // This result is stale; discard it instead of letting it
+                        // overwrite the newer, correct preview.
+                        if (myPreviewGeneration !== _previewGeneration) {
+                            if (workspace && workspace.parentNode)
+                                document.body.removeChild(workspace);
+                            return;
+                        }
+                        postProcessMathForExport(workspace, isWord);
+                        // Cache each question's now-typeset markup — skip ones already
+                        // cached (those came FROM the cache this render, unchanged) —
+                        // so a future update that doesn't affect a given question (a
+                        // color tweak, or the exact same settings tried again) can
+                        // reuse it instead of paying for MathJax again.
+                        workspace
+                            .querySelectorAll("[data-qkey]")
+                            .forEach((el) => {
+                                const k = el.getAttribute("data-qkey");
+                                if (!_qHtmlCache.has(k))
+                                    _qHtmlCache.set(k, el.outerHTML);
+                            });
+                        while (_qHtmlCache.size > _Q_HTML_CACHE_MAX) {
+                            _qHtmlCache.delete(_qHtmlCache.keys().next().value);
+                        }
+                        finalizePrintContainer(workspace.innerHTML);
+                        if (workspace && workspace.parentNode)
+                            document.body.removeChild(workspace);
+                    };
+
                     if (
                         window.MathJax &&
                         typeof window.MathJax.typesetPromise === "function"
                     ) {
-                        MathJax.typesetClear([workspace]);
                         MathJax.typesetPromise([workspace])
-                            .then(() => {
-                                postProcessMathForExport(workspace, isWord);
-                                finalizePrintContainer(
-                                    workspace.innerHTML,
-                                    cols,
-                                    fontSize,
-                                    combinedFontStr,
-                                    showColRule,
-                                );
-                                if (workspace && workspace.parentNode)
-                                    document.body.removeChild(workspace);
-                            })
+                            .then(applyRenderedResult)
                             .catch((err) => {
                                 console.error("MathJax error:", err);
-                                postProcessMathForExport(workspace, isWord);
-                                finalizePrintContainer(
-                                    workspace.innerHTML,
-                                    cols,
-                                    fontSize,
-                                    combinedFontStr,
-                                    showColRule,
-                                );
-                                if (workspace && workspace.parentNode)
-                                    document.body.removeChild(workspace);
+                                applyRenderedResult();
                             });
                     } else {
-                        finalizePrintContainer(
-                            workspace.innerHTML,
-                            cols,
-                            fontSize,
-                            combinedFontStr,
-                            showColRule,
-                        );
-                        if (workspace && workspace.parentNode)
-                            document.body.removeChild(workspace);
+                        applyRenderedResult();
                     }
                 }
             }
 
-            function finalizePrintContainer(
-                rawHTML,
-                cols,
-                fontSize,
-                fontStr,
-                showColRule,
-            ) {
+            function finalizePrintContainer(rawHTML) {
                 let previewContainer = document.getElementById("live-preview");
                 let printContainer = document.getElementById(
                     "pdf-export-container",
@@ -5039,21 +5194,25 @@
                 // root cause of severe spacing/layout breakage once a selection grew
                 // past several hundred questions: CSS multi-column balancing degrades
                 // badly with that many non-splittable (`break-inside:avoid`) blocks in
-                // one container. This function now only applies typography, not columns.
-                const wrappedContent = `<div style="font-size: ${fontSize}px; font-family: ${fontStr}; text-align: left;">${rawHTML}</div>`;
-
+                // one container. This function only applies structure — typography
+                // (font-size/family) is now applied straight to the persistent
+                // containers by applyPreviewCosmetics() below, PERF: not baked into a
+                // wrapper div rebuilt on every call, so it can also be updated on its
+                // own, instantly, without going through this function at all.
                 if (previewContainer) {
                     // Reset class every time: Markdown mode overwrites it with dark/monospace
                     // styles; leaving it dirty causes spacing & colour glitches when switching
                     // back to PDF or Word format.
                     previewContainer.className =
                         "p-10 text-black font-sans w-full shadow-2xl rounded-sm bg-white transition-colors duration-200";
-                    previewContainer.style.fontFamily = "";
-                    previewContainer.innerHTML = wrappedContent;
+                    previewContainer.style.textAlign = "left";
+                    previewContainer.innerHTML = rawHTML;
                 }
                 if (printContainer) {
-                    printContainer.innerHTML = wrappedContent;
+                    printContainer.style.textAlign = "left";
+                    printContainer.innerHTML = rawHTML;
                 }
+                applyPreviewCosmetics();
 
                 const loader = document.getElementById("preview-loader");
                 if (loader) loader.classList.add("hidden");

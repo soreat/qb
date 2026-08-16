@@ -1,0 +1,46 @@
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="242" height="134.66666666666669" viewBox="-6 267.3333333333333 242 134.66666666666669" version="1.1" id="svg20" sodipodi:docname="image2_triangles_ABC.svg" inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)">
+  <defs id="defs20">
+    <marker style="overflow:visible" id="Triangle" refX="2" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="0.69999999" markerHeight="0.5" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="none">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path135"/>
+    </marker>
+    <marker style="overflow:visible" id="Triangle-4" refX="2" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="0.69999999" markerHeight="0.5" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="none">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path135-8"/>
+    </marker>
+  </defs>
+  <sodipodi:namedview id="namedview20" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" inkscape:zoom="1.0075" inkscape:cx="18.858561" inkscape:cy="239.20596" inkscape:window-width="1920" inkscape:window-height="1009" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg20"/>
+  <polygon points="93,57.5 89.1,63.6 85.8,58.2 " fill="#000000" id="polygon16-9-6" transform="matrix(1.9747819,0,0,1.9747819,-62.192815,198.81733)"/>
+  <g id="g6-2" transform="translate(2.6958282,270.56387)">
+    <line x1="18" y1="103" x2="150" y2="92" stroke="#000000" stroke-width="3.2" stroke-linecap="round" id="line1-4" style="marker-end:url(#Triangle-4)"/>
+    <text x="84" y="101" font-size="11.6px" text-anchor="middle" fill="#000000" id="text1-5">→</text>
+    <text x="84" y="114" font-size="21px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text2-5">A</text>
+    <line x1="150" y1="92" x2="168" y2="12" stroke="#000000" stroke-width="3.2" stroke-linecap="round" id="line2-1" style="marker-start:url(#Triangle)"/>
+    <line x1="168" y1="12" x2="18" y2="103" stroke="#000000" stroke-width="3.2" stroke-linecap="round" id="line3-7" style="marker-end:"/>
+    <text x="194" y="39" font-size="11.6px" text-anchor="middle" fill="#000000" id="text3-1">→</text>
+    <text x="194" y="52" font-size="21px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text4-1">B</text>
+    <text x="85" y="36.5" font-size="11.6px" text-anchor="middle" fill="#000000" id="text5-5">→</text>
+    <text x="85" y="49.5" font-size="21px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text6-2">C</text>
+  </g>
+  <polygon points="85.8,58.2 93,57.5 89.1,63.6 " fill="#000000" id="polygon16-9" transform="matrix(1.9747819,0,0,1.9747819,-63.821906,53.788312)"/>
+  <g transform="translate(0,0)" id="g6">
+    <line x1="18.0" y1="103.0" x2="150.0" y2="92.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line1" style="marker-end:url(#Triangle)"/>
+    <text x="84.0" y="101.0" font-size="11.6" text-anchor="middle" fill="black" id="text1">→</text>
+    <text x="84.0" y="114.0" font-size="21" font-family="Georgia,serif" font-style="italic" text-anchor="middle" fill="black" id="text2">A</text>
+    <line x1="150.0" y1="92.0" x2="168.0" y2="12.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line2" style="marker-end:url(#Triangle)"/>
+    <line x1="168.0" y1="12.0" x2="18.0" y2="103.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line3" style="marker-end:url(#Triangle)"/>
+    <text x="194.0" y="39.0" font-size="11.6" text-anchor="middle" fill="black" id="text3">→</text>
+    <text x="194.0" y="52.0" font-size="21" font-family="Georgia,serif" font-style="italic" text-anchor="middle" fill="black" id="text4">B</text>
+    <text x="85.0" y="36.5" font-size="11.6" text-anchor="middle" fill="black" id="text5">→</text>
+    <text x="85.0" y="49.5" font-size="21" font-family="Georgia,serif" font-style="italic" text-anchor="middle" fill="black" id="text6">C</text>
+  </g>
+  <g transform="translate(-1.4036859,127.03358)" id="g26">
+    <line x1="18" y1="103" x2="150" y2="92" stroke="#000000" stroke-width="3.2" stroke-linecap="round" id="line20" style="marker-end:url(#Triangle)"/>
+    <text x="84" y="101" font-size="11.6px" text-anchor="middle" fill="#000000" id="text21">→</text>
+    <text x="84" y="114" font-size="21px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text22">A</text>
+    <line x1="150" y1="92" x2="168" y2="12" stroke="#000000" stroke-width="3.2" stroke-linecap="round" id="line22" style="marker-end:url(#Triangle)"/>
+    <line x1="168" y1="12" x2="18" y2="103" stroke="#000000" stroke-width="3.2" stroke-linecap="round" id="line23" style="marker-start:"/>
+    <text x="194" y="39" font-size="11.6px" text-anchor="middle" fill="#000000" id="text23">→</text>
+    <text x="194" y="52" font-size="21px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text24">B</text>
+    <text x="85" y="36.5" font-size="11.6px" text-anchor="middle" fill="#000000" id="text25">→</text>
+    <text x="85" y="49.5" font-size="21px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text26">C</text>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="246" height="112.98602294921875" viewBox="-8 89.95942687988281 246 112.98602294921875" version="1.1" id="svg17" sodipodi:docname="image12_four_AB.svg" inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)">
+  <defs id="defs17">
+    <marker style="overflow:visible" id="marker19" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="0.7" markerHeight="0.7" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path19"/>
+    </marker>
+    <marker style="overflow:visible" id="marker18" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="0.7" markerHeight="0.7" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path18"/>
+    </marker>
+    <marker style="overflow:visible" id="marker17" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="0.7" markerHeight="0.7" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path17"/>
+    </marker>
+    <marker style="overflow:visible" id="Triangle" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="Triangle arrow" markerWidth="0.7" markerHeight="0.7" viewBox="0 0 1 1" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid">
+      <path transform="scale(0.5)" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt" d="M 5.77,0 -2.88,5 V -5 Z" id="path135"/>
+    </marker>
+  </defs>
+  <sodipodi:namedview id="namedview17" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050" inkscape:zoom="1.6791667" inkscape:cx="100.04963" inkscape:cy="228.68486" inkscape:window-width="1920" inkscape:window-height="1009" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg17"/>
+  <line x1="30.0" y1="55.0" x2="110.0" y2="55.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line1"/>
+  <polygon points="101.9,58.9 101.9,51.1 110,55 " fill="#000000" id="polygon1" transform="matrix(1.8578081,0,0,1.8578081,-130.88476,-47.179444)"/>
+  <line x1="110.0" y1="55.0" x2="195.0" y2="55.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line2"/>
+  <polygon points="186.9,58.9 186.9,51.1 195,55 " fill="#000000" id="polygon2" transform="matrix(1.6617039,0,0,1.6617039,-124.35236,-36.393714)"/>
+  <circle cx="110" cy="55" r="4" fill="black" id="circle2"/>
+  <text x="66.847107" y="16.647419" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text2" style="stroke-width:1.25789">→</text>
+  <text x="66.847107" y="33" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text3" style="stroke-width:1.25789">B</text>
+  <text x="180.05728" y="16.647419" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text4" style="stroke-width:1.25789">→</text>
+  <text x="180.05728" y="33" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text5" style="stroke-width:1.25789">A</text>
+  <line x1="115.0" y1="150.0" x2="25.0" y2="150.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line5" style="marker-end:url(#marker17)"/>
+  <line x1="115.0" y1="150.0" x2="205.0" y2="150.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line6" style="marker-end:url(#Triangle)"/>
+  <circle cx="115" cy="150" r="4" fill="black" id="circle6"/>
+  <line x1="70.0" y1="300.0" x2="70.0" y2="225.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line9" style="marker-end:url(#marker18)"/>
+  <line x1="70.0" y1="300.0" x2="170.0" y2="300.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line10" style="marker-end:url(#marker18)"/>
+  <line x1="30.0" y1="390.0" x2="190.0" y2="390.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line13" style="marker-end:url(#marker19)"/>
+  <line x1="30.0" y1="445.0" x2="190.0" y2="445.0" stroke="black" stroke-width="3.2" stroke-linecap="round" id="line15" style="marker-end:url(#marker19)"/>
+  <text x="60.341969" y="110.75742" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text2-9" style="stroke-width:1.25789">→</text>
+  <text x="60.341969" y="127.11" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text3-4" style="stroke-width:1.25789">B</text>
+  <text x="173.55214" y="110.75742" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text4-8" style="stroke-width:1.25789">→</text>
+  <text x="173.55214" y="127.11" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text5-8" style="stroke-width:1.25789">A</text>
+  <text x="43.016903" y="212.08247" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text2-4" style="stroke-width:1.25789">→</text>
+  <text x="43.016903" y="228.43506" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text3-5" style="stroke-width:1.25789">B</text>
+  <text x="196.87926" y="290.54144" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text4-5" style="stroke-width:1.25789">→</text>
+  <text x="196.87926" y="306.89404" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text5-1" style="stroke-width:1.25789">A</text>
+  <text x="104.27745" y="421.75336" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text2-4-1" style="stroke-width:1.25789">→</text>
+  <text x="104.27745" y="438.10596" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text3-5-1" style="stroke-width:1.25789">B</text>
+  <text x="105.72635" y="366.75336" font-size="14.5915px" text-anchor="middle" fill="#000000" id="text4-5-2" style="stroke-width:1.25789">→</text>
+  <text x="105.72635" y="383.10596" font-size="26.4157px" font-family="Georgia, serif" font-style="italic" text-anchor="middle" fill="#000000" id="text5-1-7" style="stroke-width:1.25789">A</text>
+</svg>

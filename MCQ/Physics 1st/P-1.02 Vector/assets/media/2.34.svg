@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="310"
+   height="230"
+   viewBox="0 0 310 230"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="image14_AB_60deg.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="0.69999999"
+       markerHeight="0.69999999"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.87608696"
+     inkscape:cx="134.68983"
+     inkscape:cy="236.27792"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <text
+     x="111.14676"
+     y="178.10597"
+     font-size="37.5119px"
+     font-family="Georgia, 'Times New Roman', serif"
+     font-style="normal"
+     font-weight="normal"
+     text-anchor="middle"
+     fill="#000000"
+     id="text2"
+     style="stroke-width:1.97431"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:1.97431"
+   id="tspan6">60</tspan>°</text>
+  <line
+     x1="11.999996"
+     y1="185"
+     x2="295"
+     y2="185"
+     stroke="#000000"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line1"
+     style="marker-end:url(#Triangle)" />
+  <line
+     x1="11.999996"
+     y1="185"
+     x2="242"
+     y2="45.000004"
+     stroke="#000000"
+     stroke-width="3.2"
+     stroke-linecap="round"
+     id="line2"
+     style="marker-end:url(#Triangle)" />
+  <path
+     d="m 60.398481,185 a 59.337751,59.337751 0 0 0 -7.25188,-25.04576"
+     stroke="#000000"
+     stroke-width="2.71965"
+     fill="none"
+     id="path2" />
+  <text
+     x="118.70784"
+     y="67.640015"
+     font-size="20.8443px"
+     text-anchor="middle"
+     fill="#000000"
+     id="text3"
+     style="stroke:#000000;stroke-width:0.697;stroke-dasharray:none;stroke-opacity:1">→</text>
+  <text
+     x="118.70784"
+     y="91"
+     font-size="37.7354px"
+     font-family="Georgia, serif"
+     font-style="italic"
+     text-anchor="middle"
+     fill="#000000"
+     id="text4"
+     style="stroke-width:1.79692">B</text>
+  <text
+     x="159.57004"
+     y="201.46777"
+     font-size="19.7073px"
+     text-anchor="middle"
+     fill="#000000"
+     id="text5"
+     style="stroke:#000000;stroke-width:0.7;stroke-dasharray:none;stroke-opacity:1">→</text>
+  <text
+     x="159.57004"
+     y="223.55353"
+     font-size="35.677px"
+     font-family="Georgia, serif"
+     font-style="italic"
+     text-anchor="middle"
+     fill="#000000"
+     id="text6"
+     style="stroke-width:1.69891">A</text>
+</svg>
