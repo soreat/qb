@@ -1162,14 +1162,25 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <div class="flex justify-between mb-1.5">
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
                                         <label
                                             class="text-[10px] font-bold text-slate-500"
-                                            >FONT SIZE</label
-                                        ><span
-                                            class="text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded"
-                                            id="lbl-fontsize"
-                                        ></span>
+                                            >FONT SIZE (px)</label
+                                        ><input
+                                            type="number"
+                                            id="inp-fontsize"
+                                            min="11"
+                                            max="22"
+                                            class="w-14 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                            oninput="
+                                                document.getElementById(
+                                                    'exp-fontsize',
+                                                ).value = this.value;
+                                                schedulePreviewUpdate();
+                                            "
+                                        />
                                     </div>
                                     <input
                                         type="range"
@@ -1179,21 +1190,33 @@
                                         class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                         oninput="
                                             document.getElementById(
-                                                'lbl-fontsize',
-                                            ).innerText = this.value + 'px';
+                                                'inp-fontsize',
+                                            ).value = this.value;
                                             schedulePreviewUpdate();
                                         "
                                     />
                                 </div>
                                 <div>
-                                    <div class="flex justify-between mb-1.5">
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
                                         <label
                                             class="text-[10px] font-bold text-slate-500"
-                                            >MATH SCALE</label
-                                        ><span
-                                            class="text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded"
-                                            id="lbl-mathscale"
-                                        ></span>
+                                            >MATH SCALE (%)</label
+                                        ><input
+                                            type="number"
+                                            id="inp-mathscale"
+                                            min="50"
+                                            max="200"
+                                            step="5"
+                                            class="w-14 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                            oninput="
+                                                document.getElementById(
+                                                    'exp-mathscale',
+                                                ).value = this.value;
+                                                schedulePreviewUpdate();
+                                            "
+                                        />
                                     </div>
                                     <input
                                         type="range"
@@ -1204,21 +1227,32 @@
                                         class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                         oninput="
                                             document.getElementById(
-                                                'lbl-mathscale',
-                                            ).innerText = this.value + '%';
+                                                'inp-mathscale',
+                                            ).value = this.value;
                                             schedulePreviewUpdate();
                                         "
                                     />
                                 </div>
                                 <div>
-                                    <div class="flex justify-between mb-1.5">
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
                                         <label
                                             class="text-[10px] font-bold text-slate-500"
-                                            >QUESTION SPACING</label
-                                        ><span
-                                            class="text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded"
-                                            id="lbl-qspace"
-                                        ></span>
+                                            >QUESTION SPACING (px)</label
+                                        ><input
+                                            type="number"
+                                            id="inp-qspace"
+                                            min="0"
+                                            max="100"
+                                            class="w-14 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                            oninput="
+                                                document.getElementById(
+                                                    'exp-qspace',
+                                                ).value = this.value;
+                                                schedulePreviewUpdate();
+                                            "
+                                        />
                                     </div>
                                     <input
                                         type="range"
@@ -1228,21 +1262,32 @@
                                         class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                         oninput="
                                             document.getElementById(
-                                                'lbl-qspace',
-                                            ).innerText = this.value + 'px';
+                                                'inp-qspace',
+                                            ).value = this.value;
                                             schedulePreviewUpdate();
                                         "
                                     />
                                 </div>
                                 <div>
-                                    <div class="flex justify-between mb-1.5">
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
                                         <label
                                             class="text-[10px] font-bold text-slate-500"
-                                            >OPTION GAP</label
-                                        ><span
-                                            class="text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded"
-                                            id="lbl-optgap"
-                                        ></span>
+                                            >OPTION GAP (px)</label
+                                        ><input
+                                            type="number"
+                                            id="inp-optgap"
+                                            min="0"
+                                            max="100"
+                                            class="w-14 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                            oninput="
+                                                document.getElementById(
+                                                    'exp-optgap',
+                                                ).value = this.value;
+                                                schedulePreviewUpdate();
+                                            "
+                                        />
                                     </div>
                                     <input
                                         type="range"
@@ -1252,8 +1297,8 @@
                                         class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                         oninput="
                                             document.getElementById(
-                                                'lbl-optgap',
-                                            ).innerText = this.value + 'px';
+                                                'inp-optgap',
+                                            ).value = this.value;
                                             schedulePreviewUpdate();
                                         "
                                     />
@@ -1261,14 +1306,25 @@
                                 <div
                                     class="pt-2 border-t border-slate-200/60 dark:border-slate-700/60"
                                 >
-                                    <div class="flex justify-between mb-1.5">
+                                    <div
+                                        class="flex justify-between items-center mb-1.5"
+                                    >
                                         <label
                                             class="text-[10px] font-bold text-slate-500"
                                             >SMART AUTO CHAR LIMIT</label
-                                        ><span
-                                            class="text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 rounded"
-                                            id="lbl-charlimit"
-                                        ></span>
+                                        ><input
+                                            type="number"
+                                            id="inp-charlimit"
+                                            min="10"
+                                            max="100"
+                                            class="w-14 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                            oninput="
+                                                document.getElementById(
+                                                    'exp-charlimit',
+                                                ).value = this.value;
+                                                schedulePreviewUpdate();
+                                            "
+                                        />
                                     </div>
                                     <input
                                         type="range"
@@ -1278,8 +1334,8 @@
                                         class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                         oninput="
                                             document.getElementById(
-                                                'lbl-charlimit',
-                                            ).innerText = this.value;
+                                                'inp-charlimit',
+                                            ).value = this.value;
                                             schedulePreviewUpdate();
                                         "
                                     />
@@ -1457,64 +1513,82 @@
                                         >
                                             <div>
                                                 <div
-                                                    class="flex justify-between mb-1"
+                                                    class="flex justify-between items-center mb-1"
                                                 >
                                                     <span
                                                         class="text-[10px] text-slate-500"
                                                         >Custom [x]</span
-                                                    ><span
-                                                        class="text-[10px] font-bold text-primary"
-                                                        id="lbl-qimg-custom"
-                                                        >100%</span
-                                                    >
+                                                    ><input
+                                                        type="number"
+                                                        id="inp-qimg-custom"
+                                                        min="0"
+                                                        max="500"
+                                                        step="10"
+                                                        class="w-12 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                                        oninput="
+                                                            document.getElementById(
+                                                                'exp-qimg-custom',
+                                                            ).value =
+                                                                this.value /
+                                                                100;
+                                                            schedulePreviewUpdate();
+                                                        "
+                                                    />
                                                 </div>
                                                 <input
                                                     type="range"
                                                     id="exp-qimg-custom"
-                                                    min="0.3"
-                                                    max="3.0"
+                                                    min="0"
+                                                    max="5.0"
                                                     step="0.1"
                                                     class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                                     oninput="
                                                         document.getElementById(
-                                                            'lbl-qimg-custom',
-                                                        ).innerText =
-                                                            Math.round(
-                                                                this.value *
-                                                                    100,
-                                                            ) + '%';
+                                                            'inp-qimg-custom',
+                                                        ).value = Math.round(
+                                                            this.value * 100,
+                                                        );
                                                         schedulePreviewUpdate();
                                                     "
                                                 />
                                             </div>
                                             <div>
                                                 <div
-                                                    class="flex justify-between mb-1"
+                                                    class="flex justify-between items-center mb-1"
                                                 >
                                                     <span
                                                         class="text-[10px] text-slate-500"
                                                         >Empty []</span
-                                                    ><span
-                                                        class="text-[10px] font-bold text-primary"
-                                                        id="lbl-qimg-empty"
-                                                        >100%</span
-                                                    >
+                                                    ><input
+                                                        type="number"
+                                                        id="inp-qimg-empty"
+                                                        min="0"
+                                                        max="100"
+                                                        step="5"
+                                                        class="w-12 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                                        oninput="
+                                                            document.getElementById(
+                                                                'exp-qimg-empty',
+                                                            ).value =
+                                                                this.value /
+                                                                100;
+                                                            schedulePreviewUpdate();
+                                                        "
+                                                    />
                                                 </div>
                                                 <input
                                                     type="range"
                                                     id="exp-qimg-empty"
-                                                    min="0.3"
-                                                    max="3.0"
-                                                    step="0.1"
+                                                    min="0"
+                                                    max="1.0"
+                                                    step="0.05"
                                                     class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                                     oninput="
                                                         document.getElementById(
-                                                            'lbl-qimg-empty',
-                                                        ).innerText =
-                                                            Math.round(
-                                                                this.value *
-                                                                    100,
-                                                            ) + '%';
+                                                            'inp-qimg-empty',
+                                                        ).value = Math.round(
+                                                            this.value * 100,
+                                                        );
                                                         schedulePreviewUpdate();
                                                     "
                                                 />
@@ -1531,64 +1605,82 @@
                                         >
                                             <div>
                                                 <div
-                                                    class="flex justify-between mb-1"
+                                                    class="flex justify-between items-center mb-1"
                                                 >
                                                     <span
                                                         class="text-[10px] text-slate-500"
                                                         >Custom [x]</span
-                                                    ><span
-                                                        class="text-[10px] font-bold text-primary"
-                                                        id="lbl-optimg-custom"
-                                                        >100%</span
-                                                    >
+                                                    ><input
+                                                        type="number"
+                                                        id="inp-optimg-custom"
+                                                        min="0"
+                                                        max="500"
+                                                        step="10"
+                                                        class="w-12 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                                        oninput="
+                                                            document.getElementById(
+                                                                'exp-optimg-custom',
+                                                            ).value =
+                                                                this.value /
+                                                                100;
+                                                            schedulePreviewUpdate();
+                                                        "
+                                                    />
                                                 </div>
                                                 <input
                                                     type="range"
                                                     id="exp-optimg-custom"
-                                                    min="0.3"
-                                                    max="3.0"
+                                                    min="0"
+                                                    max="5.0"
                                                     step="0.1"
                                                     class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                                     oninput="
                                                         document.getElementById(
-                                                            'lbl-optimg-custom',
-                                                        ).innerText =
-                                                            Math.round(
-                                                                this.value *
-                                                                    100,
-                                                            ) + '%';
+                                                            'inp-optimg-custom',
+                                                        ).value = Math.round(
+                                                            this.value * 100,
+                                                        );
                                                         schedulePreviewUpdate();
                                                     "
                                                 />
                                             </div>
                                             <div>
                                                 <div
-                                                    class="flex justify-between mb-1"
+                                                    class="flex justify-between items-center mb-1"
                                                 >
                                                     <span
                                                         class="text-[10px] text-slate-500"
                                                         >Empty []</span
-                                                    ><span
-                                                        class="text-[10px] font-bold text-primary"
-                                                        id="lbl-optimg-empty"
-                                                        >100%</span
-                                                    >
+                                                    ><input
+                                                        type="number"
+                                                        id="inp-optimg-empty"
+                                                        min="0"
+                                                        max="100"
+                                                        step="5"
+                                                        class="w-12 text-[10px] font-bold text-primary bg-indigo-50 dark:bg-indigo-900/30 px-1 py-0.5 rounded text-center outline-none"
+                                                        oninput="
+                                                            document.getElementById(
+                                                                'exp-optimg-empty',
+                                                            ).value =
+                                                                this.value /
+                                                                100;
+                                                            schedulePreviewUpdate();
+                                                        "
+                                                    />
                                                 </div>
                                                 <input
                                                     type="range"
                                                     id="exp-optimg-empty"
-                                                    min="0.3"
-                                                    max="3.0"
-                                                    step="0.1"
+                                                    min="0"
+                                                    max="1.0"
+                                                    step="0.05"
                                                     class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer"
                                                     oninput="
                                                         document.getElementById(
-                                                            'lbl-optimg-empty',
-                                                        ).innerText =
-                                                            Math.round(
-                                                                this.value *
-                                                                    100,
-                                                            ) + '%';
+                                                            'inp-optimg-empty',
+                                                        ).value = Math.round(
+                                                            this.value * 100,
+                                                        );
                                                         schedulePreviewUpdate();
                                                     "
                                                 />
@@ -2233,24 +2325,24 @@
                     STUDIO_DEFAULTS.defaultSubtitle;
                 document.getElementById("exp-optgap").value =
                     STUDIO_DEFAULTS.defaultOptionGap;
-                document.getElementById("lbl-optgap").innerText =
-                    STUDIO_DEFAULTS.defaultOptionGap + "px";
+                document.getElementById("inp-optgap").value =
+                    STUDIO_DEFAULTS.defaultOptionGap;
                 document.getElementById("exp-qspace").value =
                     STUDIO_DEFAULTS.defaultQuestionSpace;
-                document.getElementById("lbl-qspace").innerText =
-                    STUDIO_DEFAULTS.defaultQuestionSpace + "px";
+                document.getElementById("inp-qspace").value =
+                    STUDIO_DEFAULTS.defaultQuestionSpace;
                 document.getElementById("exp-fontsize").value =
                     STUDIO_DEFAULTS.defaultFontSize;
-                document.getElementById("lbl-fontsize").innerText =
-                    STUDIO_DEFAULTS.defaultFontSize + "px";
+                document.getElementById("inp-fontsize").value =
+                    STUDIO_DEFAULTS.defaultFontSize;
                 document.getElementById("exp-charlimit").value =
                     STUDIO_DEFAULTS.smartOptionCharLimit;
-                document.getElementById("lbl-charlimit").innerText =
+                document.getElementById("inp-charlimit").value =
                     STUDIO_DEFAULTS.smartOptionCharLimit;
                 document.getElementById("exp-mathscale").value =
                     STUDIO_DEFAULTS.defaultMathScale;
-                document.getElementById("lbl-mathscale").innerText =
-                    STUDIO_DEFAULTS.defaultMathScale + "%";
+                document.getElementById("inp-mathscale").value =
+                    STUDIO_DEFAULTS.defaultMathScale;
                 document.getElementById("exp-qnum-mt").value =
                     STUDIO_DEFAULTS.defaultQNumMt;
                 document.getElementById("inp-qnum-mt").value =
@@ -2274,7 +2366,7 @@
                     "optimg-empty",
                 ].forEach((id) => {
                     document.getElementById("exp-" + id).value = 1.0;
-                    document.getElementById("lbl-" + id).innerText = "100%";
+                    document.getElementById("inp-" + id).value = 100;
                 });
                 document.getElementById("exp-font-bn").value =
                     STUDIO_DEFAULTS.defaultFontBn;
@@ -2467,9 +2559,18 @@
                         }
                         let st =
                             "max-width:100%;height:auto;vertical-align:top;";
-                        if (pw) st += `width:${pw}px;`;
-                        const as = pw ? sc : se;
-                        if (as !== 1.0) st += `zoom:${as};`;
+                        if (pw) {
+                            // Custom [x]: an explicit pixel width was typed in the markdown
+                            // itself — keep it, and further scale it by the Custom slider
+                            // (0–500%).
+                            st += `width:${pw}px;`;
+                            if (sc !== 1.0) st += `zoom:${sc};`;
+                        } else {
+                            // Empty []: no explicit width in the markdown — sized as a
+                            // direct percentage of the available column width (the Empty
+                            // slider, 0–100%), defaulting to 100% (fills the column).
+                            st += `width:${Math.round(se * 100)}%;`;
+                        }
                         const cls = shadow
                             ? "object-contain inline-block rounded-lg shadow-sm border border-slate-200 mx-1 my-1"
                             : "object-contain inline-block mx-1 my-1";
@@ -2577,6 +2678,10 @@
                     ch = new Set(),
                     top = new Set(),
                     src = new Set();
+                // Lowest question id seen for each topic — used to order the Topic
+                // dropdown the same way Export Studio orders topic groups: the topic
+                // containing the lowest id leads, instead of A–Z.
+                const topicMinId = new Map();
                 examData = {
                     Board: { insts: new Set(), years: new Set() },
                     Admission: { insts: new Set(), years: new Set() },
@@ -2585,7 +2690,12 @@
                 questionsArray.forEach((q) => {
                     if (q.subject) sub.add(q.subject);
                     if (q.chapter) q.chapter.forEach((c) => ch.add(c));
-                    q.metadata?.topic?.forEach((t) => top.add(t));
+                    q.metadata?.topic?.forEach((t) => {
+                        top.add(t);
+                        const prev = topicMinId.get(t);
+                        if (!prev || naturalCompare(q.id, prev) < 0)
+                            topicMinId.set(t, q.id);
+                    });
                     if (q.source) src.add(q.source);
                     if (q.metadata?.board?.length) src.add("Board");
                     if (q.metadata?.admission?.length) src.add("Admission");
@@ -2593,7 +2703,16 @@
                     const pt = (tags, type) => {
                         if (!tags || !Array.isArray(tags)) return;
                         tags.forEach((t) => {
-                            if (!t) return;
+                            // Skip malformed entries: a handful of questions have
+                            // leftover unparsed "- **Field:**" metadata lines sitting
+                            // in these arrays instead of a real "#Code_YY" tag (a
+                            // build_database.py parsing quirk on blank fields). A
+                            // real tag never contains "*" or ":" and always starts
+                            // with "#", so this filters the noise out of the
+                            // Institution/Year dropdowns without touching the
+                            // underlying data.
+                            if (!t || !t.startsWith("#") || /[*:]/.test(t))
+                                return;
                             const c = t.replace(/^#/, "");
                             const p = c.split("_");
                             examData[type].insts.add(p[0]);
@@ -2607,21 +2726,38 @@
                         pt(q.metadata.college, "College");
                     }
                 });
-                const pop = (id, def, items, fmt) => {
+                const pop = (id, def, items, fmt, sortFn) => {
                     const el = document.getElementById(id);
                     if (!el) return;
                     el.innerHTML = `<option value="all">${def}</option>`;
-                    [...items]
-                        .sort()
-                        .forEach(
-                            (s) =>
-                                (el.innerHTML += `<option value="${s}">${fmt ? fmt(s) : s}</option>`),
-                        );
+                    const sorted = sortFn ? sortFn([...items]) : [...items].sort();
+                    sorted.forEach(
+                        (s) =>
+                            (el.innerHTML += `<option value="${s}">${fmt ? fmt(s) : s}</option>`),
+                    );
                 };
                 pop("filter-subject", "All Subjects", sub);
                 pop("filter-chapter", "All Chapters", ch);
-                pop("filter-topic", "All Topics", top, (s) =>
-                    s.replace(/#/g, "").replace(/_/g, " "),
+                pop(
+                    "filter-topic",
+                    "All Topics",
+                    top,
+                    (s) => s.replace(/#/g, "").replace(/_/g, " "),
+                    (keys) => {
+                        const ranks = db.topic_ranks || {};
+                        return keys.sort((a, b) => {
+                            const ra = ranks[a],
+                                rb = ranks[b];
+                            if (ra !== undefined && rb !== undefined)
+                                return ra - rb;
+                            if (ra !== undefined) return -1;
+                            if (rb !== undefined) return 1;
+                            return naturalCompare(
+                                topicMinId.get(a) || "",
+                                topicMinId.get(b) || "",
+                            );
+                        });
+                    },
                 );
                 pop("filter-source", "All Sources", src, (s) =>
                     s.replace("Book_", "Book: ").replace(/_/g, " "),
@@ -3864,25 +4000,11 @@
                     D.defaultOptLabelW;
                 document.getElementById("inp-opt-label-mt").value =
                     D.defaultOptLabelMt;
-                // Restore label displays
-                document.getElementById("lbl-fontsize").innerText =
-                    D.defaultFontSize + "px";
-                document.getElementById("lbl-mathscale").innerText =
-                    D.defaultMathScale + "%";
-                document.getElementById("lbl-qspace").innerText =
-                    D.defaultQuestionSpace + "px";
-                document.getElementById("lbl-optgap").innerText =
-                    D.defaultOptionGap + "px";
-                document.getElementById("lbl-charlimit").innerText =
-                    D.smartOptionCharLimit;
-                [
-                    "qimg-custom",
-                    "qimg-empty",
-                    "optimg-custom",
-                    "optimg-empty",
-                ].forEach((id) => {
-                    document.getElementById("lbl-" + id).innerText = "100%";
-                });
+                // NOTE: no separate "restore label displays" step needed here —
+                // si() and the qimg/optimg loop above both dispatch an input event
+                // on their slider, and every slider's oninput handler already syncs
+                // its paired inp-* number input (see the Advanced Tweaks / Image
+                // Scale controls), so the number inputs update automatically.
                 // Show/hide PDF-only settings correctly
                 document.getElementById("pdf-only-settings").style.display =
                     "block";
@@ -3986,9 +4108,13 @@
                     return keys.sort((a, b) => num(a) - num(b));
                 }
                 if (levelKey === "topic") {
-                    // Order topics by the smallest question id inside that topic's
-                    // bucket, so the topic containing e.g. p2c06-001 leads, then
-                    // whichever topic holds the next-lowest id, and so on.
+                    // Manually-ranked topics (authored as "#(01)Vector" in the
+                    // markdown) carry an explicit rank in db.topic_ranks — stripped
+                    // out by build_database.py before it ever reaches here — and
+                    // those sort first, lowest rank leading. Any topic without an
+                    // explicit rank falls back to the smallest question id inside
+                    // its own bucket, so nothing needs a rank before this works.
+                    const ranks = db.topic_ranks || {};
                     const minIdForKey = new Map();
                     keys.forEach((key) => {
                         const groupQs = buckets.get(key);
@@ -3999,12 +4125,18 @@
                         }
                         minIdForKey.set(key, min);
                     });
-                    return keys.sort((a, b) =>
-                        naturalCompare(
+                    return keys.sort((a, b) => {
+                        const ra = ranks[a],
+                            rb = ranks[b];
+                        if (ra !== undefined && rb !== undefined)
+                            return ra - rb;
+                        if (ra !== undefined) return -1;
+                        if (rb !== undefined) return 1;
+                        return naturalCompare(
                             minIdForKey.get(a),
                             minIdForKey.get(b),
-                        ),
-                    );
+                        );
+                    });
                 }
                 return keys.sort((a, b) => a.localeCompare(b));
             }
@@ -4843,7 +4975,7 @@
                                     const cqLabel = getCQLabel(idx, cqNumStyle);
                                     optionsHTML += `
                                         <div style="margin-top: ${optLabelMt}px; margin-bottom: 8px;">
-                                            <b>${cqLabel}</b> &nbsp; <span>${parseMarkdownToHTML(sq, optImgScaleCustom, optImgScaleEmpty, showImgShadow, true)}</span>
+                                            <b>${cqLabel}</b> &nbsp; <span>${parseMarkdownToHTML(sq, qImgScaleCustom, qImgScaleEmpty, showImgShadow, true)}</span>
                                         </div>`;
                                 });
                                 optionsHTML += `</div>`;
@@ -4854,7 +4986,7 @@
                                     optionsHTML += `
                                         <tr>
                                             <td style="width: ${optLabelW}em; vertical-align: top; font-weight: bold; padding-top: ${optLabelMt}px; padding-bottom: 8px;">${cqLabel}</td>
-                                            <td style="vertical-align: top; padding-bottom: 8px;">${parseMarkdownToHTML(sq, optImgScaleCustom, optImgScaleEmpty, showImgShadow, true)}</td>
+                                            <td style="vertical-align: top; padding-bottom: 8px;">${parseMarkdownToHTML(sq, qImgScaleCustom, qImgScaleEmpty, showImgShadow, true)}</td>
                                         </tr>`;
                                 });
                                 optionsHTML += `</table>`;
@@ -4868,7 +5000,7 @@
                                     optionsHTML += `
                                         <div style="position: relative; padding-left: ${optLabelW}em; break-inside: avoid;" class="text-[1em]">
                                             <span class="font-bold whitespace-nowrap" style="position: absolute; left: 0; top: ${optLabelMt}px;">${cqLabel}</span>
-                                            <div class="math-render" style="flex: 1; min-width: 0;">${parseMarkdownToHTML(sq, optImgScaleCustom, optImgScaleEmpty, showImgShadow, false)}</div>
+                                            <div class="math-render" style="flex: 1; min-width: 0;">${parseMarkdownToHTML(sq, qImgScaleCustom, qImgScaleEmpty, showImgShadow, false)}</div>
                                         </div>`;
                                 });
                                 optionsHTML += `</div>`;

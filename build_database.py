@@ -12,7 +12,16 @@ QUESTION_SPLIT_RE = re.compile(r"^## Question:\s*(.+)$", re.MULTILINE)
 
 # Every "- **Field:** value" metadata line, captured generically in one pass instead
 # of one full re.search over the whole question per field (11 scans -> 1 scan).
-META_LINE_RE = re.compile(r"^-\s*\*\*([^*:]+):\*\*[ \t]*(.*)$", re.MULTILINE)
+# The value stops at end-of-line OR at the start of another "- **Field:**" pattern
+# on the SAME line (via the lookahead) — a few source files have blank metadata
+# fields collapsed onto one physical line (e.g. "- **Board Exam:** - **Admission
+# Exam:** ..."), and without this the first field's value would swallow every
+# subsequent field's declaration as literal garbage text instead of leaving them
+# as separate (empty) fields.
+META_LINE_RE = re.compile(
+    r"^-\s*\*\*([^*:]+):\*\*[ \t]*(.*?)(?=\s*-\s*\*\*[^*:]+:\*\*|\s*$)",
+    re.MULTILINE,
+)
 
 BODY_RE = re.compile(
     r"-\s*\*\*Tags:\*\*[^\n]*\n\s*(.*?)(?:### Options|### Sub-questions|### Explanation|\Z)",
@@ -26,6 +35,15 @@ EXPLANATION_RE = re.compile(r"### Explanation\n(.*)", re.DOTALL)
 
 IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 SUBQ_CLEAN_RE = re.compile(r"^-\s*(?:\[[xX ]\]\s*)?(?:[ক-ঘa-d0-9ivx]+\.)?\s*")
+
+# A topic tag can optionally start with a manual sort rank before an underscore,
+# e.g. "#01_Vector" or "#1_Motion" -> rank 1, name "Vector"/"Motion". The NN_ is a
+# pure authoring/sorting convenience and is stripped before it ever reaches the
+# site — only the name after it is kept as the topic's displayed/stored value.
+# Existing multi-word topics that already use "_" as a space (e.g.
+# "#আঠারো_বছর_বয়স") are untouched, since they don't start with a digit — only a
+# LEADING run of digits immediately before the first "_" counts as a rank.
+TOPIC_RANK_RE = re.compile(r"^(#?)(\d+)_(.+)$")
 
 
 def make_image_rewriter(rel_path):
@@ -63,10 +81,38 @@ def meta_list(meta, field):
     return [x.strip() for x in re.split(r"\s*,\s*|\s+(?=#)", val) if x.strip()] if val else []
 
 
+def clean_topic_list(raw_topics, topic_ranks, rank_conflicts):
+    """Strip a leading "NN_" rank marker off each topic tag. The rank (if any)
+    is recorded once per topic NAME in the shared topic_ranks dict (lowest rank
+    wins if the same topic is tagged with different numbers in different
+    questions — that mismatch also gets queued into rank_conflicts so build_db()
+    can warn about it, same spirit as the existing duplicate-id warning). Topics
+    with no leading "NN_" at all are left exactly as they were — old-style tags,
+    including ones that already use "_" as a space, keep working with no changes
+    required to existing notes."""
+    cleaned = []
+    for raw in raw_topics:
+        m = TOPIC_RANK_RE.match(raw)
+        if not m:
+            cleaned.append(raw)
+            continue
+        hashmark, rank_str, name = m.groups()
+        clean = f"{hashmark}{name}".strip()
+        rank = int(rank_str)
+        if clean in topic_ranks and topic_ranks[clean] != rank:
+            rank_conflicts.append((clean, topic_ranks[clean], rank))
+            rank = min(topic_ranks[clean], rank)
+        topic_ranks[clean] = rank
+        cleaned.append(clean)
+    return cleaned
+
+
 def build_db():
     db = {"curriculum": {}, "questions": {}}
     base_dir = Path(".")
     seen_ids = {}  # question id -> file it first appeared in, purely for the warning below
+    topic_ranks = {}  # topic name -> its (NN) rank, accumulated across every question
+    rank_conflicts = []  # (topic, first_rank, other_rank) pairs, for the warning below
 
     # Sorted so the build is reproducible (same vault -> byte-identical database.json,
     # regardless of filesystem/OS directory-listing order) — helpful for git diffs and
@@ -88,7 +134,9 @@ def build_db():
 
             subject = meta.get("Subject", "")
             chapter = meta_list(meta, "Chapter")
-            topic = meta_list(meta, "Topic")
+            topic = clean_topic_list(
+                meta_list(meta, "Topic"), topic_ranks, rank_conflicts
+            )
             source = meta.get("Source", "")
             q_type = meta.get("Type", "")
             difficulty = meta.get("Difficulty", "")
@@ -163,6 +211,15 @@ def build_db():
                 "sub_questions": sub_questions_list,
                 "explanation": exp_raw,
             }
+
+    db["topic_ranks"] = topic_ranks
+
+    for topic, first_rank, other_rank in rank_conflicts:
+        print(
+            f"WARNING: topic '{topic}' was tagged with rank ({first_rank}) "
+            f"somewhere and ({other_rank}) elsewhere — using the lower one, "
+            f"({min(first_rank, other_rank)})."
+        )
 
     # Compact output (no indent/spaces) — same data, ~35% smaller file, which is what
     # the browser actually downloads and parses on every page load. If you want the
